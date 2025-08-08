@@ -1,4 +1,5 @@
 ﻿#pragma once
+struct GLFWwindow;
 
 namespace nova {
 
@@ -7,9 +8,10 @@ public:
     void Init();
     void Run();
     void Shutdown();
-    Editor() = default;
     void DrawUI();
+
+private:
+    GLFWwindow* m_window = nullptr; // <-- store the GLFW window here
 };
 
 } // namespace nova
-

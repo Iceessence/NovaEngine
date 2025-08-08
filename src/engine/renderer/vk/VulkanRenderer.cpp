@@ -37,6 +37,8 @@ namespace nova { bool ShouldDisableImGui(); }
 #include <cstdio>
 namespace nova {
 
+bool g_ui_frame_begun = false;
+
 // This symbol is defined (or shimmed) in Editor side to gate UI drawing.
 extern bool g_ui_frame_begun;
 

@@ -1,42 +1,65 @@
 ﻿#include "Editor.h"
-#include "engine/core/Log.h"
+#include "core/Log.h"
 
+#include <GLFW/glfw3.h>
 #include <thread>
 #include <chrono>
 
-// If you have ImGui available, we'll render a dockspace when a context exists.
-#include <imgui.h>
-
 namespace nova {
+
+// Esc key = close helper
+static void OnKey(GLFWwindow* w, int key, int scancode, int action, int mods) {
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+        glfwSetWindowShouldClose(w, GLFW_TRUE);
+    }
+}
 
 void Editor::Init() {
     NOVA_INFO("Editor::Init");
+
+    if (!glfwInit()) {
+        NOVA_INFO("GLFW init failed");
+        return;
+    }
+
+    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API); // we're Vulkan
+    if (!m_window) {
+        m_window = glfwCreateWindow(1280, 720, "NovaEditor", nullptr, nullptr);
+    }
+    if (m_window) {
+        glfwSetKeyCallback(m_window, OnKey);
+        NOVA_INFO("GLFW window created (1280x720)");
+    }
 }
 
 void Editor::Run() {
-    NOVA_INFO("Editor::Run — stub loop (10s)");
-    auto end = std::chrono::steady_clock::now() + std::chrono::seconds(10);
-    while (std::chrono::steady_clock::now() < end) {
-        // Do per-frame work here later (poll events, render, etc.)
-        std::this_thread::sleep_for(std::chrono::milliseconds(16));
-        // Optionally draw UI each tick (safe even if ImGui isn't ready)
-        DrawUI();
+    NOVA_INFO("Editor::Run — entering loop");
+    if (!m_window) {
+        NOVA_INFO("No window; exiting run loop");
+        return;
     }
-    NOVA_INFO("Editor::Run — done");
+
+    // Run until user closes the window (or presses Esc).
+    while (!glfwWindowShouldClose(m_window)) {
+        glfwPollEvents();
+        // TODO: renderer BeginFrame/EndFrame and ImGui drawing go here
+        std::this_thread::sleep_for(std::chrono::milliseconds(16)); // ~60 FPS idle
+    }
+
+    NOVA_INFO("Editor::Run — leaving loop");
 }
 
 void Editor::Shutdown() {
     NOVA_INFO("Editor::Shutdown");
+    if (m_window) {
+        glfwDestroyWindow(m_window);
+        m_window = nullptr;
+    }
+    glfwTerminate();
 }
 
 void Editor::DrawUI() {
-    // Only call ImGui if a context exists (prevents crashes if not initialized yet)
-    if (ImGui::GetCurrentContext()) {
-        ImGui::NewFrame();
-        ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport(), ImGuiDockNodeFlags_None, nullptr);
-        ImGui::Render();
-    }
-    // else: no-op
+    // TODO: your ImGui panels
 }
 
 } // namespace nova

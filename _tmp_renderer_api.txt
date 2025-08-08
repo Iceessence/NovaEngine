@@ -1,0 +1,4 @@
+void InitImGui(GLFWwindow* window);
+void BeginFrame();
+void EndFrame(VkCommandBuffer cmd);
+bool IsImGuiReady() const;
