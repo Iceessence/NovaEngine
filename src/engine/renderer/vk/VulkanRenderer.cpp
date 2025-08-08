@@ -184,5 +184,16 @@ bool ShouldDisableImGui()
 
 bool nova::VulkanRenderer::IsImGuiReady() const { return m_imguiReady; }
 
+VkCommandBuffer nova::VulkanRenderer::GetActiveCmd() const
+{
+    // Stub: no active command buffer yet
+    return VK_NULL_HANDLE;
+}
 
+void nova::VulkanRenderer::EndFrame()
+{
+    VkCommandBuffer cmd = GetActiveCmd();
+    if (cmd != VK_NULL_HANDLE)
+        this->EndFrame(cmd); // call the existing one-arg overload
+}
 

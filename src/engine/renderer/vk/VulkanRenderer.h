@@ -22,7 +22,9 @@ VulkanRenderer() = default;
     void BeginFrame();
     void EndFrame(VkCommandBuffer cmd);
 
-    // Safe inline getter used by .cpp
+        VkCommandBuffer GetActiveCmd() const;
+    void EndFrame();
+// Safe inline getter used by .cpp
     bool IsImGuiReady() const;
 
 private:
@@ -41,6 +43,7 @@ private:
 };
 
 } // namespace nova
+
 
 
 
