@@ -17,13 +17,22 @@ jobs:
           cache: true
 
       - name: Configure (Release)
-        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
+        shell: pwsh
+        run: |
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release -DNOVA_FETCH_DEPS=ON
 
-      - name: Build (Release)
-        run: cmake --build build --config Release -- /m
+      - name: Build (Release, verbose)
+        shell: pwsh
+        run: |
+          cmake --build build --config Release -- /m /v:minimal
 
-      - name: Upload artifact
+      # Always upload logs + whatever built so we can inspect
+      - name: Upload build logs and outputs (always)
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: NovaEditor-Windows-Release
-          path: build/bin/Release/
+          name: build-logs-and-out
+          path: |
+            build/**/*.log
+            build/**/*.txt
+            build/bin/Release/**
