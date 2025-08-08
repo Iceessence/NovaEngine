@@ -1,49 +1,54 @@
 ﻿#include "Editor.h"
-#include "core/Log.h"
-
+#include "engine/core/Log.h"
 #include <GLFW/glfw3.h>
+#include <imgui.h>
 #include <thread>
 #include <chrono>
 
 namespace nova {
 
-// Esc key = close helper
-static void OnKey(GLFWwindow* w, int key, int scancode, int action, int mods) {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
-        glfwSetWindowShouldClose(w, GLFW_TRUE);
-    }
-}
-
 void Editor::Init() {
     NOVA_INFO("Editor::Init");
-
     if (!glfwInit()) {
         NOVA_INFO("GLFW init failed");
         return;
     }
-
-    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API); // we're Vulkan
+    m_window = glfwCreateWindow(1280, 720, "NovaEditor", nullptr, nullptr);
     if (!m_window) {
-        m_window = glfwCreateWindow(1280, 720, "NovaEditor", nullptr, nullptr);
+        NOVA_INFO("GLFW create window failed");
+        return;
     }
-    if (m_window) {
-        glfwSetKeyCallback(m_window, OnKey);
-        NOVA_INFO("GLFW window created (1280x720)");
-    }
+    NOVA_INFO("GLFW window created (1280x720)");
 }
 
 void Editor::Run() {
     NOVA_INFO("Editor::Run — entering loop");
-    if (!m_window) {
-        NOVA_INFO("No window; exiting run loop");
-        return;
-    }
 
-    // Run until user closes the window (or presses Esc).
-    while (!glfwWindowShouldClose(m_window)) {
+    double angle = 0.0;
+    auto last = std::chrono::steady_clock::now();
+
+    while (m_window && !glfwWindowShouldClose(m_window)) {
         glfwPollEvents();
-        // TODO: renderer BeginFrame/EndFrame and ImGui drawing go here
-        std::this_thread::sleep_for(std::chrono::milliseconds(16)); // ~60 FPS idle
+
+        // Only use ImGui if a context exists (prevents crashes)
+        if (ImGui::GetCurrentContext()) {
+            ImGui::NewFrame();
+            ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport(), ImGuiDockNodeFlags_None, nullptr);
+
+            ImGui::Begin("Nova Panel");
+            auto now = std::chrono::steady_clock::now();
+            double dt = std::chrono::duration<double>(now - last).count();
+            last = now;
+            angle += 60.0 * dt;
+            if (angle > 360.0) angle -= 360.0;
+            ImGui::Text("Angle: %.2f deg", angle);
+            ImGui::End();
+
+            ImGui::Render();
+        } else {
+            // No ImGui yet — keep the window responsive
+            std::this_thread::sleep_for(std::chrono::milliseconds(16));
+        }
     }
 
     NOVA_INFO("Editor::Run — leaving loop");
@@ -51,15 +56,8 @@ void Editor::Run() {
 
 void Editor::Shutdown() {
     NOVA_INFO("Editor::Shutdown");
-    if (m_window) {
-        glfwDestroyWindow(m_window);
-        m_window = nullptr;
-    }
+    if (m_window) { glfwDestroyWindow(m_window); m_window = nullptr; }
     glfwTerminate();
-}
-
-void Editor::DrawUI() {
-    // TODO: your ImGui panels
 }
 
 } // namespace nova
