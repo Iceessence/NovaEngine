@@ -1,0 +1,14 @@
+#pragma once
+#include <memory>
+#include <glm/glm.hpp>
+#include "engine/renderer/IRenderer.h"
+#include "engine/ecs/ECS.h"
+#include "engine/scripting/LuaVM.h"
+
+struct GLFWwindow;
+namespace nova {
+class Editor {\npublic:\n\ \ \ \ \r\n\ \ \ \ void\ DrawUI\(\);\r\nbool\ Init\(\);\n\ \ \ \ void\ Run\(\);\n\ \ \ \ void\ Shutdown\(\);\nprivate:\n\ \ \ \ bool\ m_play=false;\n\ \ \ \ GLFWwindow\*\ m_window=nullptr;\n\ \ \ \ std::unique_ptr<IRenderer>\ m_renderer;\n\ \ \ \ Registry\ m_world;\n\ \ \ \ LuaVM\ m_lua;\n\ \ \ \ Entity\ m_cube\{};\n\ \ \ \ glm::mat4\ ViewProj\(\)\ const;\n\ \ \ \ void\ DrawDockspace\(\);\n\ \ \ \ void\ DrawHierarchy\(\);\n\ \ \ \ void\ DrawInspector\(\);\n\ \ \ \ void\ DrawConsole\(\);\n\ \ \ \ void\ DrawMenu\(\);\n\ \ \ \ void\ LoadSample\(\);
+};
+}
+
+    void DrawUI();

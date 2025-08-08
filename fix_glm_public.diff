@@ -1,0 +1,11 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@
+-target_link_libraries(NovaEngine
+-  PRIVATE glfw glm
+-)
++target_link_libraries(NovaEngine
++  PRIVATE glfw
++  PUBLIC glm
++)

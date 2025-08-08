@@ -1,0 +1,50 @@
+--- a/src/engine/renderer/vk/VulkanRenderer.cpp
++++ b/src/engine/renderer/vk/VulkanRenderer.cpp
+@@ -216,13 +216,9 @@
+     init_info.CheckVkResultFn = ImGuiVkCheck;
+     init_info.RenderPass = m_renderPass;
+     // Note: newer ImGui backends don't take a CommandPool in Init.
+-    // Guard against double init of renderer backend
+-ImGuiIO& io2 = ImGui::GetIO();
++    ImGuiIO& io2 = ImGui::GetIO();
+ if (io2.BackendRendererUserData == nullptr) {
+-    // Make sure backend has vk functions loaded
+-    ImGui_ImplVulkan_LoadFunctions([](const char* name, void* inst){
+-        return (PFN_vkVoidFunction)vkGetInstanceProcAddr((VkInstance)inst, name);
+-    }, m_instance);
++    NOVA_INFO("VK: ImGui about to Init (RenderPass path)");
+     if (!ImGui_ImplVulkan_Init(&init_info)) {
+         NOVA_ERROR("ImGui_ImplVulkan_Init failed");
+         return false;
+@@ -231,9 +227,13 @@
+ } else {
+     NOVA_INFO("VK: ImGui Vulkan backend already initialized");
+ }
+-
+-
+-    NOVA_INFO("VK: Upload ImGui fonts");
++    NOVA_INFO("VK: ImGui Vulkan init OK");
++} else {
++    NOVA_INFO("VK: ImGui Vulkan backend already initialized");
++}
++
++
++    NOVA_INFO("VK: Upload ImGui fonts (begin)");
+     // Upload fonts
+     VkCommandPool tmpPool;
+     VkCommandPoolCreateInfo cpci{VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO}; cpci.queueFamilyIndex=m_queueFamily;
+@@ -243,11 +243,14 @@
+     VkCommandBufferBeginInfo bi{VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO}; bi.flags = VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
+     vkBeginCommandBuffer(cmd, &bi);
+     ImGui_ImplVulkan_CreateFontsTexture();
++    NOVA_INFO("VK: Fonts texture created");
+     vkEndCommandBuffer(cmd);
+     VkSubmitInfo si{VK_STRUCTURE_TYPE_SUBMIT_INFO}; si.commandBufferCount=1; si.pCommandBuffers=&cmd;
+     vkQueueSubmit(m_queue, 1, &si, VK_NULL_HANDLE);
+     vkQueueWaitIdle(m_queue);
++    NOVA_INFO("VK: Fonts upload submitted");
+     ImGui_ImplVulkan_DestroyFontsTexture();
++    NOVA_INFO("VK: Fonts upload cleanup");
+     vkFreeCommandBuffers(m_dev, tmpPool, 1, &cmd);
+     vkDestroyCommandPool(m_dev, tmpPool, nullptr);
+ 

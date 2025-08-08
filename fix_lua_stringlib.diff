@@ -1,0 +1,9 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@
+   ${lua_SOURCE_DIR}/lbaselib.c ${lua_SOURCE_DIR}/lcorolib.c ${lua_SOURCE_DIR}/ldblib.c
+-  ${lua_SOURCE_DIR}/liolib.c ${lua_SOURCE_DIR}/lmathlib.c ${lua_SOURCE_DIR}/loslib.c
++  ${lua_SOURCE_DIR}/liolib.c ${lua_SOURCE_DIR}/lmathlib.c ${lua_SOURCE_DIR}/loslib.c ${lua_SOURCE_DIR}/lstrlib.c
+   ${lua_SOURCE_DIR}/ltablib.c ${lua_SOURCE_DIR}/lutf8lib.c ${lua_SOURCE_DIR}/loadlib.c
+   ${lua_SOURCE_DIR}/linit.c

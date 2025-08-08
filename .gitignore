@@ -1,0 +1,7 @@
+/build/
+/.logs/
+/.ai/memory/export.jsonl
+*.user
+*.suo
+*.VC.db
+.DS_Store

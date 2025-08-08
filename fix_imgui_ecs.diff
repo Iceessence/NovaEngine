@@ -1,0 +1,36 @@
+diff --git a/src/engine/renderer/vk/VulkanRenderer.cpp b/src/engine/renderer/vk/VulkanRenderer.cpp
+--- a/src/engine/renderer/vk/VulkanRenderer.cpp
++++ b/src/engine/renderer/vk/VulkanRenderer.cpp
+@@ -163,7 +163,8 @@
+     init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
+     init_info.Allocator = nullptr;
+     init_info.CheckVkResultFn = nullptr;
+-    ImGui_ImplVulkan_Init(&init_info, m_renderPass);
++    init_info.RenderPass = m_renderPass;
++    ImGui_ImplVulkan_Init(&init_info);
+ 
+     // Upload fonts
+     VkCommandPool tmpPool;
+@@ -176,12 +177,12 @@
+-    ImGui_ImplVulkan_CreateFontsTexture(cmd);
++    ImGui_ImplVulkan_CreateFontsTexture();
+     vkEndCommandBuffer(cmd);
+     VkSubmitInfo si{VK_STRUCTURE_TYPE_SUBMIT_INFO}; si.commandBufferCount=1; si.pCommandBuffers=&cmd;
+     vkQueueSubmit(m_queue, 1, &si, VK_NULL_HANDLE);
+     vkQueueWaitIdle(m_queue);
+-    ImGui_ImplVulkan_DestroyFontUploadObjects();
++    ImGui_ImplVulkan_DestroyFontsTexture();
+     vkFreeCommandBuffers(m_dev, tmpPool, 1, &cmd);
+     vkDestroyCommandPool(m_dev, tmpPool, nullptr);
+
+diff --git a/src/engine/editor/Editor.cpp b/src/engine/editor/Editor.cpp
+--- a/src/engine/editor/Editor.cpp
++++ b/src/engine/editor/Editor.cpp
+@@ -4,6 +4,7 @@
+ #include "engine/core/Time.h"
+ #include "engine/editor/AICommandPalette.h"
+ #include "engine/renderer/vk/VulkanRenderer.h"
++#include "engine/ecs/Components.h"
+ #include <GLFW/glfw3.h>
+ #include <imgui.h>
+ #include <backends/imgui_impl_glfw.h>

@@ -1,0 +1,53 @@
+// Patched Editor.cpp (guard UI against missing ImGui frame)
+// Drop-in replacement for: src/engine/editor/Editor.cpp
+
+#include "Editor.h"
+#include "core/Log.h"
+#include <imgui.h>
+
+static bool __NovaImGuiReady()
+{
+    ImGuiContext* ctx = ImGui::GetCurrentContext();
+    if (!ctx) return false;
+    ImGuiIO& io = ImGui::GetIO();
+    if (!(io.BackendRendererUserData && io.BackendPlatformUserData)) return false;
+    if (!(io.Fonts && io.Fonts->IsBuilt())) return false;
+    return true;
+}
+
+namespace nova {
+
+// Provided by renderer (or shimmed) to indicate a frame has begun
+extern bool g_ui_frame_begun;
+
+void Editor::DrawUI()
+{
+    if (!g_ui_frame_begun || ImGui::GetCurrentContext() == nullptr)
+        return;
+
+    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport(), 0, ImGuiDockNodeFlags_PassthruCentralNode);
+
+    if (ImGui::Begin("Hierarchy"))
+    {
+        ImGui::TextUnformatted("Hello PBR Cube");
+    }
+    ImGui::End();
+
+    if (ImGui::Begin("Console"))
+    {
+        ImGui::TextWrapped("Logs streaming here...");
+    }
+    ImGui::End();
+}
+
+} // namespace nova
+
+
+void nova::Editor::DrawUI() {
+    if (ImGui::GetCurrentContext() == nullptr) return;
+    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport(), 0, nullptr, ImGuiDockNodeFlags_PassthruCentralNode);
+    if (ImGui::Begin("Nova")) {
+        ImGui::TextUnformatted("Hello from NovaEditor");
+    }
+    ImGui::End();
+}

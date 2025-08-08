@@ -1,0 +1,171 @@
+#include "Editor.h"
+#include "engine/core/Log.h"
+#include "engine/core/Time.h"
+#include "engine/editor/AICommandPalette.h"
+#include "engine/ecs/Components.h"
+#include "engine/renderer/vk/VulkanRenderer.h"
+#include <GLFW/glfw3.h>
+#include <imgui.h>
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_vulkan.h>
+#include <glm/gtc/matrix_transform.hpp>
+
+
+
+namespace {
+// Build ImGui font atlas on CPU so ImGui::NewFrame() won't assert even if renderer backend isn't ready.
+static inline void Nova_ImGui_EnsureFontsBuilt()
+{
+    if (ImGui::GetCurrentContext() == nullptr) return;
+    ImGuiIO& io = ImGui::GetIO();
+    if (io.Fonts && !io.Fonts->IsBuilt())
+    {
+        if (io.Fonts->Fonts.empty())
+            io.Fonts->AddFontDefault();
+        unsigned char* pixels = nullptr;
+        int w = 0, h = 0;
+        io.Fonts->GetTexDataAsRGBA32(&pixels, &w, &h);
+        (void)pixels; (void)w; (void)h;
+    }
+}
+
+static inline bool ImGuiRendererReady()
+{
+    if (ImGui::GetCurrentContext() == nullptr) return false;
+    ImGuiIO& io = ImGui::GetIO();
+    return io.BackendRendererUserData != nullptr
+        && io.BackendPlatformUserData  != nullptr
+        && io.Fonts != nullptr
+        && io.Fonts->IsBuilt();
+}
+} // anonymous
+namespace nova {
+bool Editor::Init(){
+    glfwInit();
+    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+    m_window = glfwCreateWindow(1600, 900, "NovaEditor", nullptr, nullptr);
+
+    // ImGui
+    IMGUI_CHECKVERSION(); ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO(); io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+    ImGui::StyleColorsDark();
+    ImGui_ImplGlfw_InitForVulkan(m_window, true);
+
+    // Renderer
+    m_renderer = std::make_unique<VulkanRenderer>();
+    if (!m_renderer->Init(m_window)) return false;
+
+    // Lua
+    m_lua.Init();
+    m_lua.RunFile("Scripts/rotate_cube.lua");
+
+    LoadSample();
+    NOVA_INFO("Editor ready");
+    return true;
+}
+
+void Editor::LoadSample(){
+    m_cube = m_world.create();
+    m_world.emplace<Name>(m_cube, Name{"HelloCube"});
+    auto& t = m_world.emplace<Transform>(m_cube);
+    t.position = {0,0,0};
+    t.scale = {1,1,1};
+    m_world.emplace<Renderable>(m_cube, Renderable{0,0});
+}
+
+glm::mat4 Editor::ViewProj() const{
+    glm::vec3 eye = glm::vec3(3,2,3);
+    glm::mat4 V = glm::lookAt(eye, glm::vec3(0,0,0), glm::vec3(0,1,0));
+    glm::mat4 P = glm::perspective(glm::radians(60.f), 1600.f/900.f, 0.1f, 200.f);
+    P[1][1]*=-1; // GLM Vulkan clip
+    return P*V;
+}
+
+void Editor::Run(){
+    while(!glfwWindowShouldClose(m_window)){
+        Time::BeginFrame();
+        glfwPollEvents();
+
+        if (m_play){
+            float degPerSec = m_lua.GetNumber("ROTATE_DEG_PER_SEC", 90.f);
+            auto& tr = m_world.get<Transform>(m_cube);
+            tr.rotation.y += glm::radians(degPerSec) * Time::Delta();
+        }
+
+        if (ImGuiRendererReady()) {
+        Nova_ImGui_EnsureFontsBuilt();
+        ImGui_ImplVulkan_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+        ui_frame_begun = true;
+        } else {
+        // ImGui renderer not ready; skip UI this frame
+        }
+        if (ui_frame_begun) {
+        DrawDockspace();
+        DrawMenu();
+        DrawHierarchy();
+        DrawInspector();
+        DrawConsole();
+        ai::DrawAICommandPalette(*this);
+        }
+
+        // Render 3D + ImGui
+        m_renderer->BeginFrame(ViewProj());
+        auto& tr = m_world.get<Transform>(m_cube);
+        glm::mat4 M = glm::translate(glm::mat4(1), tr.position)
+                    * glm::rotate(glm::mat4(1), tr.rotation.y, glm::vec3(0,1,0))
+                    * glm::scale(glm::mat4(1), tr.scale);
+        m_renderer->DrawCube(M, {1,0.2f,0.2f}, 0.1f, 0.6f);
+        m_renderer->EndFrame();
+    }
+}
+
+void Editor::DrawDockspace(){
+    ImGuiWindowFlags flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking |
+        ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
+        ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
+    const ImGuiViewport* vp = ImGui::GetMainViewport();
+    ImGui::SetNextWindowPos(vp->WorkPos);
+    ImGui::SetNextWindowSize(vp->WorkSize);
+    ImGui::SetNextWindowViewport(vp->ID);
+    ImGui::Begin("Dockspace", nullptr, flags);
+    ImGuiID dockspace_id = ImGui::GetID("MyDockspace");
+    ImGui::DockSpace(dockspace_id, ImVec2(0,0), ImGuiDockNodeFlags_PassthruCentralNode);
+    ImGui::End();
+}
+void Editor::DrawMenu(){
+    if(ImGui::BeginMainMenuBar()){
+        if(ImGui::BeginMenu("File")){
+            if(ImGui::MenuItem("Exit")) glfwSetWindowShouldClose(m_window,1);
+            ImGui::EndMenu();
+        }
+        if(ImGui::BeginMenu("Play")){
+            if(ImGui::MenuItem(m_play?"Stop (F5)":"Play (F5)")) m_play = !m_play;
+            ImGui::EndMenu();
+        }
+        ImGui::EndMainMenuBar();
+    }
+}
+void Editor::DrawHierarchy(){
+    ImGui::Begin("Hierarchy");
+    ImGui::TextUnformatted("HelloCube");
+    ImGui::End();
+}
+void Editor::DrawInspector(){
+    ImGui::Begin("Inspector");
+    ImGui::Text("Selected: HelloCube");
+    ImGui::End();
+}
+void Editor::DrawConsole(){
+    ImGui::Begin("Console");
+    ImGui::TextUnformatted("Logs in ./.logs/editor.log");
+    ImGui::End();
+}
+void Editor::Shutdown(){
+    // Renderer & ImGui cleanup handled by renderer
+    // Destroy window & GLFW
+    glfwDestroyWindow(m_window);
+    glfwTerminate();
+}
+}

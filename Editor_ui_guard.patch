@@ -1,0 +1,32 @@
+*** Begin Patch
+*** Update File: src/engine/editor/Editor.cpp
+@@
+-        ImGui_ImplGlfw_NewFrame();
+-        ImGui_ImplVulkan_NewFrame();
+-        ImGui::NewFrame();
++        // Only start an ImGui frame if renderer backend is present and not disabled
++        if (!std::getenv("NOVA_DISABLE_IMGUI")) {
++            ImGui_ImplGlfw_NewFrame();
++            if (ImGui::GetIO().BackendRendererUserData) {
++                ImGui_ImplVulkan_NewFrame();
++                ImGui::NewFrame();
++                ui_frame_begun = true;
++            }
++        }
+@@
+-        DrawDockspace();
+-        DrawConsole();
+-        ai::DrawAICommandPalette(*this);
++        if (ui_frame_begun) {
++            DrawDockspace();
++            DrawConsole();
++            ai::DrawAICommandPalette(*this);
++        }
+@@
+-        ImGui::Render();
+-        ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), cmd);
++        if (ui_frame_begun) {
++            ImGui::Render();
++            ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), cmd);
++        }
+*** End Patch

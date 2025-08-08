@@ -1,0 +1,10 @@
+--- a/src/engine/editor/Editor.cpp
++++ b/src/engine/editor/Editor.cpp
+@@ -7,6 +7,7 @@
+ #include <GLFW/glfw3.h>
+ #include <imgui.h>
+ #include <backends/imgui_impl_glfw.h>
++#include <backends/imgui_impl_vulkan.h>
+ #include <glm/gtc/matrix_transform.hpp>
+ 
+ namespace nova {

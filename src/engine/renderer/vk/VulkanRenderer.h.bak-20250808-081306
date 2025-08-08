@@ -1,0 +1,18 @@
+#include <vulkan/vulkan.h>
+#pragma once
+#include "engine/renderer/IRenderer.h"
+#include <volk.h>
+#include <memory>
+#include <vector>
+
+struct GLFWwindow;
+namespace nova {
+class VulkanRenderer : public IRenderer {\npublic:\n\ \ \ \ \r\n\ \ \ \ void\ InitImGui\(\);\r\n\ \ \ \ void\ BeginFrame\(\);\r\n\ \ \ \ void\ EndFrame\(VkCommandBuffer\);\r\n\ \ \ \ bool\ IsImGuiReady\(\)\ const;\r\n~VulkanRenderer\(\)\ override;\n\ \ \ \ bool\ Init\(void\*\ glfwWindowHandle\)\ override;\n\ \ \ \ void\ Resize\(int\ w,int\ h\)\ override;\n\ \ \ \ void\ BeginFrame\(const\ glm::mat4&\ viewProj\)\ override;\n\ \ \ \ void\ DrawCube\(const\ glm::mat4&\ model,\ const\ glm::vec3&\ baseColor,\ float\ metallic,\ float\ roughness\)\ override;\n\ \ \ \ void\ EndFrame\(\)\ override;\n\ \ \ \ RenderStats\ Stats\(\)\ const\ override\ \{\ return\ m_stats;\ }\nprivate:\n\ \ \ \ \r\n\ \ \ \ bool\ m_imguiReady\ =\ false;\r\n\ \ \ \ VkDescriptorPool\ m_imguiPool\ =\ VK_NULL_HANDLE;\r\nvoid\ Cleanup\(\);\n\ \ \ \ void\ CreateSwapchain\(\);\n\ \ \ \ void\ CreateRenderPass\(\);\n\ \ \ \ void\ CreateFramebuffers\(\);\n\ \ \ \ void\ CreatePipeline\(\);\n\ \ \ \ void\ CreateCommandBuffers\(\);\n\ \ \ \ void\ CreateSync\(\);\n\ \ \ \ void\ CreateBuffers\(\);\n\ \ \ \ void\ UploadCube\(\);\n\n\ \ \ \ RenderStats\ m_stats\{};\n\ \ \ \ GLFWwindow\*\ m_window\{};\n\ \ \ \ VkInstance\ m_instance\{};\n\ \ \ \ VkPhysicalDevice\ m_phys\{};\n\ \ \ \ VkDevice\ m_dev\{};\n\ \ \ \ VkSurfaceKHR\ m_surface\{};\n\ \ \ \ uint32_t\ m_queueFamily\{};\n\ \ \ \ VkQueue\ m_queue\{};\n\ \ \ \ VkSwapchainKHR\ m_swapchain\{};\n\ \ \ \ VkFormat\ m_swapFmt\{};\n\ \ \ \ VkExtent2D\ m_extent\{};\n\ \ \ \ std::vector<VkImage>\ m_images;\n\ \ \ \ std::vector<VkImageView>\ m_imageViews;\n\n\ \ \ \ VkRenderPass\ m_renderPass\{};\n\ \ \ \ VkPipelineLayout\ m_pLayout\{};\n\ \ \ \ VkPipeline\ m_pipeline\{};\n\n\ \ \ \ std::vector<VkFramebuffer>\ m_fbos;\n\ \ \ \ VkCommandPool\ m_cmdPool\{};\n\ \ \ \ std::vector<VkCommandBuffer>\ m_cmds;\n\n\ \ \ \ VkDescriptorPool\ m_imguiDescPool\{};\n\n\ \ \ \ VkBuffer\ m_vbuf\{},\ m_ibuf\{};\n\ \ \ \ VkDeviceMemory\ m_vmem\{},\ m_imem\{};\n\ \ \ \ uint32_t\ m_indexCount\{};\n\n\ \ \ \ VkSemaphore\ m_imgAvail\[2]\{},\ m_renderDone\[2]\{};\n\ \ \ \ VkFence\ m_inflight\[2]\{};\n\ \ \ \ uint32_t\ m_frameIndex=0;\n\ \ \ \ glm::mat4\ m_viewProj\{};\n\n\ \ \ \ //\ paths\n\ \ \ \ std::string\ ShaderPath\(const\ char\*\ name\)\ const;
+};
+}
+
+public:
+    void InitImGui();
+    void BeginFrame();
+    void EndFrame(VkCommandBuffer cmd);
+    bool IsImGuiReady() const { return m_imguiReady; }

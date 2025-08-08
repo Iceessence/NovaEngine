@@ -1,0 +1,10 @@
+Fix: declare 'ui_frame_begun' unconditionally at the start of the per-frame loop
+so compile succeeds even when ImGui init is disabled.
+
+How to apply:
+  1) Unzip into C:\Dev\NovaEngine (overwrite src\engine\editor\Editor.cpp).
+  2) Rebuild:
+     cd C:\Dev\NovaEngine
+     cmake --build build --config Debug
+  3) Run:
+     .\build\bin\Debug\NovaEditor.exe
