@@ -120,7 +120,7 @@ void VulkanRenderer::InitImGui(GLFWwindow* window)
     init_info.UseDynamicRendering = VK_FALSE;
     // init_info.CheckVkResultFn = [](VkResult r){ if(r) fprintf(stderr, "VK err %d\n", r); };
 
-    VK_CHECK(ImGui_ImplVulkan_Init(&init_info));
+    if (!ImGui_ImplVulkan_Init(&init_info)) { std::fprintf(stderr,"ImGui_ImplVulkan_Init failed\n"); std::abort(); }
 }// Newer ImGui backends expose zero-arg CreateFontsTexture
     // (older had VkCommandBuffer arg). We call the zero-arg one.
     (void)ImGui_ImplVulkan_CreateFontsTexture();
@@ -155,8 +155,6 @@ void VulkanRenderer::EndFrame(VkCommandBuffer cmd)
     // ... existing submit/present work ...
 }
 
-bool VulkanRenderer::IsImGuiReady() const { return m_imguiReady; }
-
 } // namespace nova
 
 namespace nova {
@@ -181,7 +179,8 @@ bool ShouldDisableImGui()
 
 
 /* removed duplicate IsImGuiReady body (handled inline in header) */
-bool nova::VulkanRenderer::IsImGuiReady() const {
-    return m_imguiReady;
-}
+
+bool nova::VulkanRenderer::IsImGuiReady() const { return m_imguiReady; }
+
+
 

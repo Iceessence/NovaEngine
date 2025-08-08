@@ -7,3 +7,10 @@ void nova::Editor::DrawUI() {
     ImGui::Render();
 }
 
+
+void nova::Editor::Init() {}
+
+void nova::Editor::Run() {}
+
+void nova::Editor::Shutdown() {}
+

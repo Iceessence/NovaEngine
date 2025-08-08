@@ -1,4 +1,4 @@
-#include "engine/editor/Editor.h"
+﻿#include "engine/editor/Editor.h"
 #include "engine/core/Log.h"
 
 int main() {
@@ -6,10 +6,7 @@ int main() {
     nova::Log::Init();
     NOVA_INFO("NovaEditor starting...");
     nova::Editor editor;
-    if (!editor.Init()) {
-        NOVA_FATAL("Editor init failed");
-        return 1;
-    }
+    editor.Init();
     editor.Run();
     editor.Shutdown();
     NOVA_INFO("Goodbye.");
@@ -20,3 +17,4 @@ int main() {
         return 2;
     }
 }
+
