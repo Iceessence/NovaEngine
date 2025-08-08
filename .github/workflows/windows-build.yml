@@ -4,18 +4,14 @@ on:
   push:
   workflow_dispatch:
 
-concurrency:
-  group: build-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   windows:
     runs-on: windows-latest
+
     steps:
       - uses: actions/checkout@v4
 
-      # If your repo now builds without Vulkan SDK, keep this removed.
-      # If you still need it, add the choco install step back.
+      # No Vulkan SDK step — the project builds without it
 
       - name: Configure (CMake)
         shell: pwsh
@@ -27,7 +23,7 @@ jobs:
         run: |
           cmake --build build --config Release -- /m
 
-      - name: Package ZIP
+      - name: Prepare artifact folder
         shell: pwsh
         run: |
           $exe = Get-ChildItem -Recurse -File -Path build -Filter NovaEditor.exe | Select-Object -First 1
@@ -35,25 +31,27 @@ jobs:
             Get-ChildItem -Recurse build | Out-String | Write-Host
             throw "NovaEditor.exe not found under build/"
           }
-          $dir  = $exe.Directory.FullName
-          if (Test-Path .\assets) { Copy-Item -Recurse -Force .\assets $dir }
-          $sha7 = $env:GITHUB_SHA.Substring(0,7)
-          $zip  = "NovaEditor-$($env:GITHUB_RUN_NUMBER)-$sha7-Release.zip"
-          Compress-Archive -Path (Join-Path $dir '*') -DestinationPath $zip -Force
-          Write-Host "Created $zip"
+          $dir = $exe.Directory.FullName
+          $out = Join-Path $env:RUNNER_TEMP "NovaEditor-Release"
+          if (Test-Path $out) { Remove-Item -Recurse -Force $out }
+          New-Item -ItemType Directory -Force -Path $out | Out-Null
+          Copy-Item -Recurse -Force "$dir\*" $out
+          if (Test-Path .\assets) { Copy-Item -Recurse -Force .\assets (Join-Path $out 'assets') }
+          Write-Host "Prepared folder: $out"
 
-      - name: Upload ZIP
+      - name: Upload NovaEditor-Release (folder)
         uses: actions/upload-artifact@v4
         with:
           name: NovaEditor-Release
-          path: NovaEditor-*-Release.zip
+          path: ${{ runner.temp }}/NovaEditor-Release/**
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 7
 
-      - name: Upload build folder (always)
+      - name: Upload logs (always)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-logs-and-out
-          path: build/**/*
-          retention-days: 7
+          path: |
+            build/**/*
+          retention-days: 5
