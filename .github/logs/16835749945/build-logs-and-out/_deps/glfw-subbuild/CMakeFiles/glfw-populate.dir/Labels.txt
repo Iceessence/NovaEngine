@@ -1,0 +1,14 @@
+# Target labels
+ glfw-populate
+# Source files and their labels
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/77143b8792b3d46243789569992131a4/glfw-populate.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/8cf474edc437d19ad0db0eec989fb1d2/glfw-populate-complete.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/c9ade55ffcce5dd931b7496e52299077/glfw-populate-build.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/c9ade55ffcce5dd931b7496e52299077/glfw-populate-configure.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/c9ade55ffcce5dd931b7496e52299077/glfw-populate-download.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/c9ade55ffcce5dd931b7496e52299077/glfw-populate-install.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/c9ade55ffcce5dd931b7496e52299077/glfw-populate-mkdir.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/c9ade55ffcce5dd931b7496e52299077/glfw-populate-patch.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/c9ade55ffcce5dd931b7496e52299077/glfw-populate-test.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-subbuild/CMakeFiles/c9ade55ffcce5dd931b7496e52299077/glfw-populate-update.rule

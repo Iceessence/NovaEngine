@@ -1,0 +1,14 @@
+# Target labels
+ imgui-populate
+# Source files and their labels
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/imgui-populate
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/e6548087aa0376ec8badc3489acac092/imgui-populate.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/9c4851c3f727ce29391e7a56bb40e136/imgui-populate-complete.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/0da2e39cf285e5d9b1aa8604651d4c57/imgui-populate-build.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/0da2e39cf285e5d9b1aa8604651d4c57/imgui-populate-configure.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/0da2e39cf285e5d9b1aa8604651d4c57/imgui-populate-download.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/0da2e39cf285e5d9b1aa8604651d4c57/imgui-populate-install.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/0da2e39cf285e5d9b1aa8604651d4c57/imgui-populate-mkdir.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/0da2e39cf285e5d9b1aa8604651d4c57/imgui-populate-patch.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/0da2e39cf285e5d9b1aa8604651d4c57/imgui-populate-test.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/imgui-subbuild/CMakeFiles/0da2e39cf285e5d9b1aa8604651d4c57/imgui-populate-update.rule

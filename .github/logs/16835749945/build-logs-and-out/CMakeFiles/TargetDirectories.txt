@@ -1,0 +1,17 @@
+D:/a/NovaEngine/NovaEngine/build/CMakeFiles/Shaders.dir
+D:/a/NovaEngine/NovaEngine/build/CMakeFiles/NovaEngine.dir
+D:/a/NovaEngine/NovaEngine/build/CMakeFiles/NovaEditor.dir
+D:/a/NovaEngine/NovaEngine/build/CMakeFiles/INSTALL.dir
+D:/a/NovaEngine/NovaEngine/build/CMakeFiles/ALL_BUILD.dir
+D:/a/NovaEngine/NovaEngine/build/CMakeFiles/ZERO_CHECK.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-build/CMakeFiles/uninstall.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-build/CMakeFiles/INSTALL.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-build/CMakeFiles/ALL_BUILD.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-build/src/CMakeFiles/glfw.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-build/src/CMakeFiles/update_mappings.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-build/src/CMakeFiles/INSTALL.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glfw-build/docs/CMakeFiles/INSTALL.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glm-build/CMakeFiles/INSTALL.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glm-build/CMakeFiles/ALL_BUILD.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glm-build/glm/CMakeFiles/glm.dir
+D:/a/NovaEngine/NovaEngine/build/_deps/glm-build/glm/CMakeFiles/INSTALL.dir
