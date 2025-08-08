@@ -1,4 +1,4 @@
-#ifndef VK_NO_PROTOTYPES
+﻿#ifndef VK_NO_PROTOTYPES
 #define VK_NO_PROTOTYPES
 #endif
 #include <volk.h>
@@ -94,7 +94,7 @@ void VulkanRenderer::InitImGui(GLFWwindow* window)
     init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
     init_info.CheckVkResultFn = [](VkResult res){ VK_CHECK(res); };
 
-    ImGui_ImplVulkan_Init(&init_info, m_renderPass);
+    ImGui_ImplVulkan_Init(&init_info);
 
     // Newer ImGui backends expose zero-arg CreateFontsTexture
     // (older had VkCommandBuffer arg). We call the zero-arg one.
@@ -153,3 +153,4 @@ bool ShouldDisableImGui()
 #ifndef VK_CHECK
 #define VK_CHECK(x) do { VkResult _err = (x); if (_err != VK_SUCCESS) { /* TODO: replace with your logger */ __debugbreak(); } } while(0)
 #endif
+
