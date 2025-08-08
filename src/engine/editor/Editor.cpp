@@ -41,14 +41,12 @@ void Editor::DrawUI()
 }
 
 } // namespace nova
-
+ImGui::End();
+}
 
 void nova::Editor::DrawUI() {
-    if (ImGui::GetCurrentContext() == nullptr) return;
-    ImGuiID dock_id = ImGui::GetID("MainDock"); ImGui::DockSpace(dock_id, ImVec2(0,0), ImGuiDockNodeFlags_None);
-    if (ImGui::Begin("Nova")) {
-        ImGui::TextUnformatted("Hello from NovaEditor");
-    }
-    ImGui::End();
+    ImGui::NewFrame();
+    ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport(), ImGuiDockNodeFlags_None, nullptr);
+    ImGui::Render();
 }
 

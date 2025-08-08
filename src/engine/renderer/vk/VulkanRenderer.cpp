@@ -171,3 +171,8 @@ bool ShouldDisableImGui()
 
 /* removed duplicate IsImGuiReady body (handled inline in header) */
 
+
+bool nova::VulkanRenderer::IsImGuiReady() const {
+    return m_imguiReady;
+}
+
