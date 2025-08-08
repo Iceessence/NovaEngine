@@ -10,10 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Vulkan SDK
-        shell: pwsh
-        run: |
-          choco install vulkan-sdk -y --no-progress || choco upgrade vulkan-sdk -y --no-progress
+      # No Vulkan SDK step — the project builds without it
 
       - name: Configure (CMake)
         shell: pwsh
@@ -35,8 +32,7 @@ jobs:
           }
           $dir = $exe.Directory.FullName
           if (Test-Path .\assets) { Copy-Item -Recurse -Force .\assets $dir }
-          $short = $env:GITHUB_SHA.Substring(0,7)
-          $zip = "NovaEditor-$env:GITHUB_RUN_NUMBER-$short-Release.zip"
+          $zip = "NovaEditor-${{ github.run_number }}-${{ github.sha.Substring(0,7) }}-Release.zip"
           Compress-Archive -Path (Join-Path $dir '*') -DestinationPath $zip -Force
           Write-Host "Created $zip"
 
@@ -48,12 +44,18 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      # Copy any extra logs you want INSIDE the workspace, then upload
+      - name: Collect logs (always)
+        if: always()
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path build-logs | Out-Null
+          if (Test-Path build) { Copy-Item -Recurse -Force build\* build-logs\ | Out-Null }
+
       - name: Upload logs (always)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-logs-and-out
-          path: |
-            build/**/*
-            C:\ProgramData\chocolatey\logs\chocolatey.log
+          path: build-logs/**
           retention-days: 5
