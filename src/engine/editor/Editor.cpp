@@ -1,4 +1,4 @@
-// Patched Editor.cpp (guard UI against missing ImGui frame)
+﻿// Patched Editor.cpp (guard UI against missing ImGui frame)
 // Drop-in replacement for: src/engine/editor/Editor.cpp
 
 #include "Editor.h"
@@ -25,7 +25,7 @@ void Editor::DrawUI()
     if (!g_ui_frame_begun || ImGui::GetCurrentContext() == nullptr)
         return;
 
-    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport(), 0, ImGuiDockNodeFlags_PassthruCentralNode);
+    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport()->ID, 0, ImGuiDockNodeFlags_PassthruCentralNode);
 
     if (ImGui::Begin("Hierarchy"))
     {
@@ -45,7 +45,7 @@ void Editor::DrawUI()
 
 void nova::Editor::DrawUI() {
     if (ImGui::GetCurrentContext() == nullptr) return;
-    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport(), 0, nullptr, ImGuiDockNodeFlags_PassthruCentralNode);
+    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport()->ID, 0, nullptr, ImGuiDockNodeFlags_PassthruCentralNode);
     if (ImGui::Begin("Nova")) {
         ImGui::TextUnformatted("Hello from NovaEditor");
     }

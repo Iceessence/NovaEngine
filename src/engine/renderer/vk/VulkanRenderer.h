@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 // Ensure volk defines VK_NO_PROTOTYPES before including Vulkan headers
 #ifndef VK_NO_PROTOTYPES
@@ -6,6 +6,7 @@
 #endif
 
 #include <volk.h>
+#include <GLFW/glfw3.h>
 #include <vector>
 #include <cstdint>
 
@@ -13,7 +14,9 @@ namespace nova {
 
 class VulkanRenderer {
 public:
-    VulkanRenderer() = default;
+    
+    void InitImGui(GLFWwindow* window);
+VulkanRenderer() = default;
     ~VulkanRenderer() = default;
 
     // ImGui lifecycle used by VulkanRenderer.cpp
@@ -40,3 +43,4 @@ private:
 };
 
 } // namespace nova
+
