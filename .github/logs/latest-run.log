@@ -1,0 +1,526 @@
+﻿windows	Set up job	∩╗┐2025-08-08T18:20:25.3001111Z Current runner version: '2.327.1'
+windows	Set up job	2025-08-08T18:20:25.3356713Z ##[group]Runner Image Provisioner
+windows	Set up job	2025-08-08T18:20:25.3357585Z Hosted Compute Agent
+windows	Set up job	2025-08-08T18:20:25.3358117Z Version: 20250711.363
+windows	Set up job	2025-08-08T18:20:25.3358716Z Commit: 6785254374ce925a23743850c1cb91912ce5c14c
+windows	Set up job	2025-08-08T18:20:25.3359395Z Build Date: 2025-07-11T20:04:25Z
+windows	Set up job	2025-08-08T18:20:25.3360023Z ##[endgroup]
+windows	Set up job	2025-08-08T18:20:25.3360535Z ##[group]Operating System
+windows	Set up job	2025-08-08T18:20:25.3361120Z Microsoft Windows Server 2022
+windows	Set up job	2025-08-08T18:20:25.3361722Z 10.0.20348
+windows	Set up job	2025-08-08T18:20:25.3362161Z Datacenter
+windows	Set up job	2025-08-08T18:20:25.3362561Z ##[endgroup]
+windows	Set up job	2025-08-08T18:20:25.3362964Z ##[group]Runner Image
+windows	Set up job	2025-08-08T18:20:25.3363419Z Image: windows-2022
+windows	Set up job	2025-08-08T18:20:25.3363840Z Version: 20250727.1.0
+windows	Set up job	2025-08-08T18:20:25.3364779Z Included Software: https://github.com/actions/runner-images/blob/win22/20250727.1/images/windows/Windows2022-Readme.md
+windows	Set up job	2025-08-08T18:20:25.3366048Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20250727.1
+windows	Set up job	2025-08-08T18:20:25.3367632Z ##[endgroup]
+windows	Set up job	2025-08-08T18:20:25.3368605Z ##[group]GITHUB_TOKEN Permissions
+windows	Set up job	2025-08-08T18:20:25.3370373Z Contents: read
+windows	Set up job	2025-08-08T18:20:25.3370867Z Metadata: read
+windows	Set up job	2025-08-08T18:20:25.3371274Z Packages: read
+windows	Set up job	2025-08-08T18:20:25.3371711Z ##[endgroup]
+windows	Set up job	2025-08-08T18:20:25.3373778Z Secret source: Actions
+windows	Set up job	2025-08-08T18:20:25.3374372Z Prepare workflow directory
+windows	Set up job	2025-08-08T18:20:25.5158464Z Prepare all required actions
+windows	Set up job	2025-08-08T18:20:25.5198012Z Getting action download info
+windows	Set up job	2025-08-08T18:20:25.7496418Z ##[group]Download immutable action package 'actions/checkout@v4'
+windows	Set up job	2025-08-08T18:20:25.7498164Z Version: 4.2.2
+windows	Set up job	2025-08-08T18:20:25.7499420Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+windows	Set up job	2025-08-08T18:20:25.7500748Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+windows	Set up job	2025-08-08T18:20:25.7501524Z ##[endgroup]
+windows	Set up job	2025-08-08T18:20:25.9579127Z Download action repository 'humbletim/install-vulkan-sdk@v1.2' (SHA:30ba978f977e81b72d091fc8888feb1fb26f9aff)
+windows	Set up job	2025-08-08T18:20:26.2747567Z ##[group]Download immutable action package 'actions/upload-artifact@v4'
+windows	Set up job	2025-08-08T18:20:26.2748576Z Version: 4.6.2
+windows	Set up job	2025-08-08T18:20:26.2749379Z Digest: sha256:290722aa3281d5caf23d0acdc3dbeb3424786a1a01a9cc97e72f147225e37c38
+windows	Set up job	2025-08-08T18:20:26.2750413Z Source commit SHA: ea165f8d65b6e75b540449e92b4886f43607fa02
+windows	Set up job	2025-08-08T18:20:26.2751165Z ##[endgroup]
+windows	Set up job	2025-08-08T18:20:26.9386919Z Getting action download info
+windows	Set up job	2025-08-08T18:20:27.0767533Z ##[group]Download immutable action package 'actions/cache@v4'
+windows	Set up job	2025-08-08T18:20:27.0769393Z Version: 4.2.4
+windows	Set up job	2025-08-08T18:20:27.0771063Z Digest: sha256:0ce81a78be9a512dff294f151044f903a6b54593e7b355dcbf964e8d583e47aa
+windows	Set up job	2025-08-08T18:20:27.0773354Z Source commit SHA: 0400d5f644dc74513175e3cd8d07132dd4860809
+windows	Set up job	2025-08-08T18:20:27.0774963Z ##[endgroup]
+windows	Set up job	2025-08-08T18:20:27.7503885Z Complete job name: windows
+windows	Run actions/checkout@v4	∩╗┐2025-08-08T18:20:28.5873970Z ##[group]Run actions/checkout@v4
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5875683Z with:
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5876431Z   repository: Iceessence/NovaEngine
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5877653Z   token: ***
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5878254Z   ssh-strict: true
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5878884Z   ssh-user: git
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5879531Z   persist-credentials: true
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5880247Z   clean: true
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5880927Z   sparse-checkout-cone-mode: true
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5881718Z   fetch-depth: 1
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5882349Z   fetch-tags: false
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5883005Z   show-progress: true
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5883648Z   lfs: false
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5884242Z   submodules: false
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5884904Z   set-safe-directory: true
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.5885855Z ##[endgroup]
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.8312488Z Syncing repository: Iceessence/NovaEngine
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.8315795Z ##[group]Getting Git version info
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.8317647Z Working directory is 'D:\a\NovaEngine\NovaEngine'
+windows	Run actions/checkout@v4	2025-08-08T18:20:28.9531503Z [command]"C:\Program Files\Git\bin\git.exe" version
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.3300008Z git version 2.50.1.windows.1
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.3349154Z ##[endgroup]
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.3390746Z Temporarily overriding HOME='D:\a\_temp\f561b4ed-41a9-4072-b573-03ef2a603a62' before making global git config changes
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.3391641Z Adding repository directory to the temporary git global config as a safe directory
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.3392372Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\NovaEngine\NovaEngine
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.3964263Z Deleting the contents of 'D:\a\NovaEngine\NovaEngine'
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.3970523Z ##[group]Initializing the repository
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.3980592Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\NovaEngine\NovaEngine
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.4578496Z Initialized empty Git repository in D:/a/NovaEngine/NovaEngine/.git/
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.4637266Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/Iceessence/NovaEngine
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.5134902Z ##[endgroup]
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.5135629Z ##[group]Disabling automatic garbage collection
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.5146043Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.5449238Z ##[endgroup]
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.5449889Z ##[group]Setting up auth
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.5466958Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+windows	Run actions/checkout@v4	2025-08-08T18:20:29.5761445Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+windows	Run actions/checkout@v4	2025-08-08T18:20:31.0635927Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+windows	Run actions/checkout@v4	2025-08-08T18:20:31.0901486Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+windows	Run actions/checkout@v4	2025-08-08T18:20:31.5986219Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+windows	Run actions/checkout@v4	2025-08-08T18:20:31.6244936Z ##[endgroup]
+windows	Run actions/checkout@v4	2025-08-08T18:20:31.6245802Z ##[group]Fetching the repository
+windows	Run actions/checkout@v4	2025-08-08T18:20:31.6259109Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +f481d2f809a8b52140945c9de789608b886f2d5c:refs/remotes/origin/main
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.5310353Z From https://github.com/Iceessence/NovaEngine
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.5310968Z  * [new ref]         f481d2f809a8b52140945c9de789608b886f2d5c -> origin/main
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.5522559Z ##[endgroup]
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.5523064Z ##[group]Determining the checkout info
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.5525051Z ##[endgroup]
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.5535568Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.5861578Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.6098617Z ##[group]Checking out the ref
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.6107771Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.7504936Z branch 'main' set up to track 'origin/main'.
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.7511177Z Switched to a new branch 'main'
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.7547737Z ##[endgroup]
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.7862546Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+windows	Run actions/checkout@v4	2025-08-08T18:20:32.8073584Z f481d2f809a8b52140945c9de789608b886f2d5c
+windows	Install Vulkan SDK	∩╗┐2025-08-08T18:20:33.2001063Z ##[group]Run humbletim/install-vulkan-sdk@v1.2
+windows	Install Vulkan SDK	2025-08-08T18:20:33.2001726Z with:
+windows	Install Vulkan SDK	2025-08-08T18:20:33.2001955Z   version: 1.4.309.0
+windows	Install Vulkan SDK	2025-08-08T18:20:33.2002171Z   cache: true
+windows	Install Vulkan SDK	2025-08-08T18:20:33.2002368Z   quiet: false
+windows	Install Vulkan SDK	2025-08-08T18:20:33.2002608Z ##[endgroup]
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4949004Z ##[group]Run # preset env
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4949449Z [36;1m# preset env[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4994565Z [36;1mbasedir=$PWD[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4994896Z [36;1mrunner_os=${RUNNER_OS:-`uname -s`}[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4995249Z [36;1mcase $runner_os in[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4995500Z [36;1m  macOS|Darwin) os=mac ;;[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4995780Z [36;1m  Linux) os=linux ;;[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4996127Z [36;1m  Windows|MINGW*) os=windows ; basedir=$(pwd -W) ;;[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4996551Z [36;1m  *) echo "unknown runner_os: $runner_os" ; exit 7 ; ;;[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4996872Z [36;1mesac[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4997107Z [36;1mversion=${VULKAN_SDK_VERSION:-1.4.309.0}[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4997534Z [36;1msdk_dir=${VULKAN_SDK:-$basedir/VULKAN_SDK}[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4997884Z [36;1mtest -d $sdk_dir || mkdir -pv $sdk_dir[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4998209Z [36;1mif [[ $version == 'latest' ]] ; then[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4998589Z [36;1m  url=https://vulkan.lunarg.com/sdk/latest/$os.txt[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4999083Z [36;1m  echo "note: resolving '$version' for '$os' via webservices lookup: $url" >&2[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4999519Z [36;1m  version=$(curl -sL $url)[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.4999908Z [36;1m  test -n "$version" || { echo "could not resolve latest version" ; exit 9 ; }[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.5000455Z [36;1m  [[ "false" == "true" ]] || echo "::notice title=Using Vulkan SDK $version::resolved via '$url'"[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.5000884Z [36;1mfi[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.5001061Z [36;1m([0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.5001245Z [36;1m  echo VULKAN_SDK=$sdk_dir[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.5001523Z [36;1m  echo VULKAN_SDK_VERSION=$version[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.5001821Z [36;1m  echo VULKAN_SDK_PLATFORM=$os[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.5002093Z [36;1m) | tee -a $GITHUB_ENV[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:33.5109129Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+windows	Install Vulkan SDK	2025-08-08T18:20:33.5109652Z ##[endgroup]
+windows	Install Vulkan SDK	2025-08-08T18:20:33.8400542Z mkdir: created directory 'D:/a/NovaEngine/NovaEngine/VULKAN_SDK'
+windows	Install Vulkan SDK	2025-08-08T18:20:33.8820902Z VULKAN_SDK=D:/a/NovaEngine/NovaEngine/VULKAN_SDK
+windows	Install Vulkan SDK	2025-08-08T18:20:33.8822292Z VULKAN_SDK_VERSION=1.4.309.0
+windows	Install Vulkan SDK	2025-08-08T18:20:33.8823256Z VULKAN_SDK_PLATFORM=windows
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3146739Z ##[group]Run actions/cache@v4
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3147094Z with:
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3147324Z   path: vulkan_sdk.*
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3147640Z   key: Windows-vulkan-prebuilt-sdk-true-1.4.309.0
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3148028Z   enableCrossOsArchive: false
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3148330Z   fail-on-cache-miss: false
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3148589Z   lookup-only: false
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3148847Z   save-always: false
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3149122Z env:
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3149361Z   VULKAN_SDK: D:/a/NovaEngine/NovaEngine/VULKAN_SDK
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3149682Z   VULKAN_SDK_VERSION: 1.4.309.0
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3149944Z   VULKAN_SDK_PLATFORM: windows
+windows	Install Vulkan SDK	2025-08-08T18:20:34.3150182Z ##[endgroup]
+windows	Install Vulkan SDK	2025-08-08T18:20:34.8671577Z Cache not found for input keys: Windows-vulkan-prebuilt-sdk-true-1.4.309.0
+windows	Install Vulkan SDK	2025-08-08T18:20:35.1563944Z ##[group]Run # download
+windows	Install Vulkan SDK	2025-08-08T18:20:35.1564267Z [36;1m# download[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:35.1564573Z [36;1m. $GITHUB_ACTION_PATH/vulkan_prebuilt_helpers.sh[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:35.1565046Z [36;1mdownload_vulkan_installer ${VULKAN_SDK_PLATFORM}[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:35.1645957Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+windows	Install Vulkan SDK	2025-08-08T18:20:35.1646438Z env:
+windows	Install Vulkan SDK	2025-08-08T18:20:35.1646706Z   VULKAN_SDK: D:/a/NovaEngine/NovaEngine/VULKAN_SDK
+windows	Install Vulkan SDK	2025-08-08T18:20:35.1647024Z   VULKAN_SDK_VERSION: 1.4.309.0
+windows	Install Vulkan SDK	2025-08-08T18:20:35.1647290Z   VULKAN_SDK_PLATFORM: windows
+windows	Install Vulkan SDK	2025-08-08T18:20:35.1722285Z ##[endgroup]
+windows	Install Vulkan SDK	2025-08-08T18:20:35.2768347Z _download_os_installer windows vulkan_sdk.exe https://sdk.lunarg.com/sdk/download/1.4.309.0/windows/vulkan_sdk.exe?Human=true
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1149158Z renamed 'vulkan_sdk.exe.tmp' -> 'vulkan_sdk.exe'
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1572367Z -rwxr-xr-x 1 runneradmin 197121 191M Aug  8 18:20 vulkan_sdk.exe
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1722394Z ##[group]Run # install
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1722620Z [36;1m# install[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1722841Z [36;1m. $GITHUB_ACTION_PATH/vulkan_prebuilt_helpers.sh[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1723161Z [36;1munpack_vulkan_installer ${VULKAN_SDK_PLATFORM}[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1734505Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1734872Z env:
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1735069Z   VULKAN_SDK: D:/a/NovaEngine/NovaEngine/VULKAN_SDK
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1735329Z   VULKAN_SDK_VERSION: 1.4.309.0
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1735530Z   VULKAN_SDK_PLATFORM: windows
+windows	Install Vulkan SDK	2025-08-08T18:20:38.1735730Z ##[endgroup]
+windows	Install Vulkan SDK	2025-08-08T18:20:38.5077746Z 
+windows	Install Vulkan SDK	2025-08-08T18:20:38.5078763Z 7-Zip 25.00 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-07-05
+windows	Install Vulkan SDK	2025-08-08T18:20:38.5080762Z 
+windows	Install Vulkan SDK	2025-08-08T18:20:38.5081237Z Scanning the drive for archives:
+windows	Install Vulkan SDK	2025-08-08T18:20:38.5081686Z 1 file, 200187952 bytes (191 MiB)
+windows	Install Vulkan SDK	2025-08-08T18:20:38.5081899Z 
+windows	Install Vulkan SDK	2025-08-08T18:20:38.5082016Z Extracting archive: vulkan_sdk.exe
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1931961Z 
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1932371Z [0]
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1932678Z WARNINGS:
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1932958Z There are data after the end of archive
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1933348Z 
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1933439Z --
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1933669Z Path = vulkan_sdk.exe
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1933941Z Type = PE
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1934180Z Physical Size = 200187952
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1934481Z CPU = x64
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1934694Z 64-bit = +
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1934953Z Characteristics = Executable LargeAddress
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1935312Z Created = 2021-05-28 20:11:02
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1936117Z Headers Size = 1024
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1936470Z Checksum = 200223623
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1937011Z Image Size = 24813568
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1937691Z Section Alignment = 4096
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1938027Z File Alignment = 512
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1938328Z Code Size = 16434176
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1938617Z Initialized Data Size = 8196608
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1938931Z Uninitialized Data Size = 0
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1939242Z Linker Version = 14.28
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1939503Z OS Version = 6.0
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1939750Z Image Version = 4.2
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1940026Z Subsystem Version = 6.0
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1940236Z Subsystem = Windows CUI
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1940612Z DLL Characteristics = HighEntropyVA Relocated NX-Compatible TerminalServerAware
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1941044Z Stack Reserve = 1048576
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1941238Z Stack Commit = 4096
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1941426Z Heap Reserve = 1048576
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1941616Z Heap Commit = 4096
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1941808Z Virtual Address = 0x140000000
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1942028Z Comment = 
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1942187Z {
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1942339Z FileVersion: 4.2.0.0
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1942605Z ProductVersion: 0.0.0.0
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1942861Z Data Directories: 16
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1943044Z {
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1943226Z index=1 name=IMPORT VA=0x162528C Size=420
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1943527Z index=2 name=RESOURCE VA=0x177F000 Size=46776
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1943848Z index=3 name=EXCEPTION VA=0x16C5000 Size=749976
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1944253Z index=4 name=SECURITY VA=0xBEE7718 Size=10520
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1944601Z index=5 name=BASERELOC VA=0x178B000 Size=126744
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1944987Z index=6 name=DEBUG VA=0x14EBC70 Size=28
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1945348Z index=9 name=TLS VA=0x14EBE00 Size=40
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1945643Z index=10 name=LOAD_CONFIG VA=0x14EBC90 Size=312
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1945941Z index=12 name=IAT VA=0xFAE000 Size=4952
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1946188Z }
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1946330Z }
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1946470Z ----
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1947543Z Path = [0]
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1947712Z Size = 175545624
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1947902Z Packed Size = 175545624
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1948110Z Virtual Size = 175545624
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1948307Z Offset = 24631808
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1948487Z --
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1948634Z Path = [0]
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1948779Z Type = 7z
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1949063Z WARNINGS:
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1949220Z There are data after the end of archive
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1949432Z Offset = 31768
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1949598Z Physical Size = 175513633
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1949795Z Tail Size = 223
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1949939Z Headers Size = 6689
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1950155Z Method = LZMA2:24 BCJ
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1950306Z Solid = +
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1950441Z Blocks = 2
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1950520Z 
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1950601Z Everything is Ok
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1950703Z 
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1950771Z Archives with Warnings: 1
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1950890Z 
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1950966Z Warnings: 1
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1951199Z Folders: 51
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1951434Z Files: 334
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1951568Z Size:       993352341
+windows	Install Vulkan SDK	2025-08-08T18:20:41.1951731Z Compressed: 200187952
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2122456Z ##[group]Run $VULKAN_SDK/bin/glslangValidator --version
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2122819Z [36;1m$VULKAN_SDK/bin/glslangValidator --version[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2133435Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2133774Z env:
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2133961Z   VULKAN_SDK: D:/a/NovaEngine/NovaEngine/VULKAN_SDK
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2134219Z   VULKAN_SDK_VERSION: 1.4.309.0
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2134413Z   VULKAN_SDK_PLATFORM: windows
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2134599Z ##[endgroup]
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2608710Z Glslang Version: 11:15.2.0
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2609135Z ESSL Version: OpenGL ES GLSL 3.20 glslang Khronos. 15.2.0
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2609439Z GLSL Version: 4.60 glslang Khronos. 15.2.0
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2609695Z SPIR-V Version 0x00010600, Revision 1
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2609967Z GLSL.std.450 Version 100, Revision 1
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2610173Z Khronos Tool ID 8
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2610353Z SPIR-V Generator Version 11
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2610689Z GL_KHR_vulkan_glsl version 100
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2610899Z ARB_GL_gl_spirv version 100
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2757536Z ##[group]Run echo ${VULKAN_SDK}/bin | tee -a $GITHUB_PATH
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2757896Z [36;1mecho ${VULKAN_SDK}/bin | tee -a $GITHUB_PATH[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2758152Z [36;1mdu -hs ${VULKAN_SDK}[0m
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2768713Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2769053Z env:
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2769232Z   VULKAN_SDK: D:/a/NovaEngine/NovaEngine/VULKAN_SDK
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2769484Z   VULKAN_SDK_VERSION: 1.4.309.0
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2769681Z   VULKAN_SDK_PLATFORM: windows
+windows	Install Vulkan SDK	2025-08-08T18:20:41.2769891Z ##[endgroup]
+windows	Install Vulkan SDK	2025-08-08T18:20:41.3244056Z D:/a/NovaEngine/NovaEngine/VULKAN_SDK/bin
+windows	Install Vulkan SDK	2025-08-08T18:20:41.3843935Z 949M	D:/a/NovaEngine/NovaEngine/VULKAN_SDK
+windows	Configure (Release)	∩╗┐2025-08-08T18:20:41.4005158Z ##[group]Run cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release -DNOVA_FETCH_DEPS=ON
+windows	Configure (Release)	2025-08-08T18:20:41.4005872Z [36;1mcmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release -DNOVA_FETCH_DEPS=ON[0m
+windows	Configure (Release)	2025-08-08T18:20:41.4186927Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+windows	Configure (Release)	2025-08-08T18:20:41.4187355Z env:
+windows	Configure (Release)	2025-08-08T18:20:41.4187611Z   VULKAN_SDK: D:/a/NovaEngine/NovaEngine/VULKAN_SDK
+windows	Configure (Release)	2025-08-08T18:20:41.4187965Z   VULKAN_SDK_VERSION: 1.4.309.0
+windows	Configure (Release)	2025-08-08T18:20:41.4188237Z   VULKAN_SDK_PLATFORM: windows
+windows	Configure (Release)	2025-08-08T18:20:41.4188500Z ##[endgroup]
+windows	Configure (Release)	2025-08-08T18:20:59.7760922Z -- The CXX compiler identification is MSVC 19.44.35213.0
+windows	Configure (Release)	2025-08-08T18:20:59.9300502Z -- Detecting CXX compiler ABI info
+windows	Configure (Release)	2025-08-08T18:21:01.4676873Z -- Detecting CXX compiler ABI info - done
+windows	Configure (Release)	2025-08-08T18:21:01.4816535Z -- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+windows	Configure (Release)	2025-08-08T18:21:01.4824264Z -- Detecting CXX compile features
+windows	Configure (Release)	2025-08-08T18:21:01.4834550Z -- Detecting CXX compile features - done
+windows	Configure (Release)	2025-08-08T18:21:06.2081231Z -- The C compiler identification is MSVC 19.44.35213.0
+windows	Configure (Release)	2025-08-08T18:21:06.2313715Z -- Detecting C compiler ABI info
+windows	Configure (Release)	2025-08-08T18:21:06.9081305Z -- Detecting C compiler ABI info - done
+windows	Configure (Release)	2025-08-08T18:21:06.9215955Z -- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+windows	Configure (Release)	2025-08-08T18:21:06.9219917Z -- Detecting C compile features
+windows	Configure (Release)	2025-08-08T18:21:06.9226241Z -- Detecting C compile features - done
+windows	Configure (Release)	2025-08-08T18:21:06.9728283Z -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+windows	Configure (Release)	2025-08-08T18:21:08.7816902Z -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+windows	Configure (Release)	2025-08-08T18:21:08.7817515Z -- Looking for pthread_create in pthreads
+windows	Configure (Release)	2025-08-08T18:21:09.3649078Z -- Looking for pthread_create in pthreads - not found
+windows	Configure (Release)	2025-08-08T18:21:09.3649755Z -- Looking for pthread_create in pthread
+windows	Configure (Release)	2025-08-08T18:21:09.9224845Z -- Looking for pthread_create in pthread - not found
+windows	Configure (Release)	2025-08-08T18:21:09.9236497Z -- Found Threads: TRUE
+windows	Configure (Release)	2025-08-08T18:21:09.9238099Z -- Including Win32 support
+windows	Configure (Release)	2025-08-08T18:21:09.9798989Z -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+windows	Configure (Release)	2025-08-08T18:21:09.9800610Z -- Documentation generation requires Doxygen 1.9.8 or later
+windows	Configure (Release)	2025-08-08T18:21:31.3685186Z CMake Deprecation Warning at build/_deps/glm-src/CMakeLists.txt:1 (cmake_minimum_required):
+windows	Configure (Release)	2025-08-08T18:21:31.3686397Z   Compatibility with CMake < 3.10 will be removed from a future version of
+windows	Configure (Release)	2025-08-08T18:21:31.3687190Z   CMake.
+windows	Configure (Release)	2025-08-08T18:21:31.3687345Z 
+windows	Configure (Release)	2025-08-08T18:21:31.3687735Z   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+windows	Configure (Release)	2025-08-08T18:21:31.3688615Z   to tell CMake that the project requires at least <min> but has been updated
+windows	Configure (Release)	2025-08-08T18:21:31.3689379Z   to work with policies introduced by <max> or earlier.
+windows	Configure (Release)	2025-08-08T18:21:31.3689801Z 
+windows	Configure (Release)	2025-08-08T18:21:31.3689810Z 
+windows	Configure (Release)	2025-08-08T18:21:31.3690218Z CMake Deprecation Warning at build/_deps/glm-src/CMakeLists.txt:2 (cmake_policy):
+windows	Configure (Release)	2025-08-08T18:21:31.3691165Z   Compatibility with CMake < 3.10 will be removed from a future version of
+windows	Configure (Release)	2025-08-08T18:21:31.3691879Z   CMake.
+windows	Configure (Release)	2025-08-08T18:21:31.3692035Z 
+windows	Configure (Release)	2025-08-08T18:21:31.3692357Z   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+windows	Configure (Release)	2025-08-08T18:21:31.3693231Z   to tell CMake that the project requires at least <min> but has been updated
+windows	Configure (Release)	2025-08-08T18:21:31.3693876Z   to work with policies introduced by <max> or earlier.
+windows	Configure (Release)	2025-08-08T18:21:31.3694238Z 
+windows	Configure (Release)	2025-08-08T18:21:31.3694244Z 
+windows	Configure (Release)	2025-08-08T18:21:31.3699224Z -- GLM: Version 1.0.1
+windows	Configure (Release)	2025-08-08T18:21:31.3721020Z -- GLM: Build with C++ features auto detection
+windows	Configure (Release)	2025-08-08T18:21:34.6008082Z CMake Warning (dev) at C:/Program Files/CMake/share/cmake-3.31/Modules/FetchContent.cmake:1953 (message):
+windows	Configure (Release)	2025-08-08T18:21:34.6009041Z   Calling FetchContent_Populate(volk) is deprecated, call
+windows	Configure (Release)	2025-08-08T18:21:34.6012851Z   FetchContent_MakeAvailable(volk) instead.  Policy CMP0169 can be set to OLD
+windows	Configure (Release)	2025-08-08T18:21:34.6013657Z   to allow FetchContent_Populate(volk) to be called directly for now, but the
+windows	Configure (Release)	2025-08-08T18:21:34.6014425Z   ability to call it with declared details will be removed completely in a
+windows	Configure (Release)	2025-08-08T18:21:34.6014982Z   future version.
+windows	Configure (Release)	2025-08-08T18:21:34.6015282Z Call Stack (most recent call first):
+windows	Configure (Release)	2025-08-08T18:21:34.6015693Z   CMakeLists.txt:37 (FetchContent_Populate)
+windows	Configure (Release)	2025-08-08T18:21:34.6016380Z This warning is for project developers.  Use -Wno-dev to suppress it.
+windows	Configure (Release)	2025-08-08T18:21:34.6016812Z 
+windows	Configure (Release)	2025-08-08T18:21:37.2530286Z CMake Warning (dev) at C:/Program Files/CMake/share/cmake-3.31/Modules/FetchContent.cmake:1953 (message):
+windows	Configure (Release)	2025-08-08T18:21:37.2531143Z   Calling FetchContent_Populate(vulkanheaders) is deprecated, call
+windows	Configure (Release)	2025-08-08T18:21:37.2531611Z   FetchContent_MakeAvailable(vulkanheaders) instead.  Policy CMP0169 can be
+windows	Configure (Release)	2025-08-08T18:21:37.2532091Z   set to OLD to allow FetchContent_Populate(vulkanheaders) to be called
+windows	Configure (Release)	2025-08-08T18:21:37.2532514Z   directly for now, but the ability to call it with declared details will be
+windows	Configure (Release)	2025-08-08T18:21:37.2532853Z   removed completely in a future version.
+windows	Configure (Release)	2025-08-08T18:21:37.2533397Z Call Stack (most recent call first):
+windows	Configure (Release)	2025-08-08T18:21:37.2533653Z   CMakeLists.txt:41 (FetchContent_Populate)
+windows	Configure (Release)	2025-08-08T18:21:37.2534012Z This warning is for project developers.  Use -Wno-dev to suppress it.
+windows	Configure (Release)	2025-08-08T18:21:37.2534275Z 
+windows	Configure (Release)	2025-08-08T18:21:47.8683116Z -- Configuring done (60.0s)
+windows	Configure (Release)	2025-08-08T18:21:47.9771062Z CMake Warning:
+windows	Configure (Release)	2025-08-08T18:21:47.9771430Z -- Generating done (0.1s)
+windows	Configure (Release)	2025-08-08T18:21:47.9771923Z   Manually-specified variables were not used by the project:
+windows	Configure (Release)	2025-08-08T18:21:47.9772341Z 
+windows	Configure (Release)	2025-08-08T18:21:47.9772449Z     CMAKE_BUILD_TYPE
+windows	Configure (Release)	2025-08-08T18:21:47.9772637Z 
+windows	Configure (Release)	2025-08-08T18:21:47.9772645Z 
+windows	Configure (Release)	2025-08-08T18:21:47.9782342Z -- Build files have been written to: D:/a/NovaEngine/NovaEngine/build
+windows	Build (Release, verbose)	∩╗┐2025-08-08T18:21:48.6305739Z ##[group]Run cmake --build build --config Release -- /m /v:minimal
+windows	Build (Release, verbose)	2025-08-08T18:21:48.6306242Z [36;1mcmake --build build --config Release -- /m /v:minimal[0m
+windows	Build (Release, verbose)	2025-08-08T18:21:48.6338205Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+windows	Build (Release, verbose)	2025-08-08T18:21:48.6338536Z env:
+windows	Build (Release, verbose)	2025-08-08T18:21:48.6338719Z   VULKAN_SDK: D:/a/NovaEngine/NovaEngine/VULKAN_SDK
+windows	Build (Release, verbose)	2025-08-08T18:21:48.6338976Z   VULKAN_SDK_VERSION: 1.4.309.0
+windows	Build (Release, verbose)	2025-08-08T18:21:48.6339172Z   VULKAN_SDK_PLATFORM: windows
+windows	Build (Release, verbose)	2025-08-08T18:21:48.6339362Z ##[endgroup]
+windows	Build (Release, verbose)	2025-08-08T18:21:48.9630618Z MSBuild version 17.14.14+a129329f1 for .NET Framework
+windows	Build (Release, verbose)	2025-08-08T18:21:48.9909046Z 
+windows	Build (Release, verbose)	2025-08-08T18:21:49.3208023Z   1>Checking Build System
+windows	Build (Release, verbose)	2025-08-08T18:21:49.6373039Z   Compiling pbr.frag.glsl -> pbr.frag.spv
+windows	Build (Release, verbose)	2025-08-08T18:21:49.7517431Z   Compiling pbr.vert.glsl -> pbr.vert.spv
+windows	Build (Release, verbose)	2025-08-08T18:21:49.8540043Z   Building Custom Rule D:/a/NovaEngine/NovaEngine/CMakeLists.txt
+windows	Build (Release, verbose)	2025-08-08T18:21:50.3982533Z   Building Custom Rule D:/a/NovaEngine/NovaEngine/build/_deps/glm-src/glm/CMakeLists.txt
+windows	Build (Release, verbose)	2025-08-08T18:21:50.3988720Z   Building Custom Rule D:/a/NovaEngine/NovaEngine/build/_deps/glfw-src/src/CMakeLists.txt
+windows	Build (Release, verbose)	2025-08-08T18:21:50.5535261Z   glm.cpp
+windows	Build (Release, verbose)	2025-08-08T18:21:50.5578272Z   context.c
+windows	Build (Release, verbose)	2025-08-08T18:21:52.6742811Z   init.c
+windows	Build (Release, verbose)	2025-08-08T18:21:52.8508913Z   input.c
+windows	Build (Release, verbose)	2025-08-08T18:21:53.0110053Z   monitor.c
+windows	Build (Release, verbose)	2025-08-08T18:21:53.1837322Z   platform.c
+windows	Build (Release, verbose)	2025-08-08T18:21:53.3218242Z   vulkan.c
+windows	Build (Release, verbose)	2025-08-08T18:21:53.6604640Z   window.c
+windows	Build (Release, verbose)	2025-08-08T18:21:53.9508717Z   egl_context.c
+windows	Build (Release, verbose)	2025-08-08T18:21:54.2034104Z   osmesa_context.c
+windows	Build (Release, verbose)	2025-08-08T18:21:54.5531556Z   null_init.c
+windows	Build (Release, verbose)	2025-08-08T18:21:54.5981050Z   glm.vcxproj -> D:\a\NovaEngine\NovaEngine\build\_deps\glm-build\glm\Release\glm.lib
+windows	Build (Release, verbose)	2025-08-08T18:21:54.7099386Z   null_monitor.c
+windows	Build (Release, verbose)	2025-08-08T18:21:54.8498979Z   null_window.c
+windows	Build (Release, verbose)	2025-08-08T18:21:54.9884582Z   null_joystick.c
+windows	Build (Release, verbose)	2025-08-08T18:21:55.1223092Z   win32_module.c
+windows	Build (Release, verbose)	2025-08-08T18:21:55.2569727Z   win32_time.c
+windows	Build (Release, verbose)	2025-08-08T18:21:55.3936294Z   win32_thread.c
+windows	Build (Release, verbose)	2025-08-08T18:21:55.5270046Z   win32_init.c
+windows	Build (Release, verbose)	2025-08-08T18:21:55.6673804Z   win32_joystick.c
+windows	Build (Release, verbose)	2025-08-08T18:21:55.8141884Z   win32_monitor.c
+windows	Build (Release, verbose)	2025-08-08T18:21:55.9558682Z   win32_window.c
+windows	Build (Release, verbose)	2025-08-08T18:21:56.1417252Z   Generating Code...
+windows	Build (Release, verbose)	2025-08-08T18:21:56.8143070Z   Compiling...
+windows	Build (Release, verbose)	2025-08-08T18:21:56.8143405Z   wgl_context.c
+windows	Build (Release, verbose)	2025-08-08T18:21:56.9540833Z   Generating Code...
+windows	Build (Release, verbose)	2025-08-08T18:21:57.1872414Z   glfw.vcxproj -> D:\a\NovaEngine\NovaEngine\build\_deps\glfw-build\src\Release\glfw3.lib
+windows	Build (Release, verbose)	2025-08-08T18:21:57.2576429Z   Building Custom Rule D:/a/NovaEngine/NovaEngine/CMakeLists.txt
+windows	Build (Release, verbose)	2025-08-08T18:21:57.4118135Z   volk.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.4536356Z   lapi.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.4807067Z   lcode.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.5050132Z   lctype.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.5162297Z   ldebug.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.5371248Z   ldo.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.5604050Z   ldump.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.5725940Z   lfunc.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.5847775Z   lgc.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.6134871Z   llex.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.6315885Z   lmem.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.6426340Z   lobject.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.6716697Z   lopcodes.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.6814894Z   lparser.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.7021506Z   lstate.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.7213093Z   lstring.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.7367651Z   ltable.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.7535397Z   ltm.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.7694883Z   lundump.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.7860740Z   lvm.c
+windows	Build (Release, verbose)	2025-08-08T18:21:57.8328716Z   Generating Code...
+windows	Build (Release, verbose)	2025-08-08T18:22:00.0179036Z   Compiling...
+windows	Build (Release, verbose)	2025-08-08T18:22:00.0179783Z   lzio.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.0320066Z   lauxlib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.0581315Z   lbaselib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.0842368Z   lcorolib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.1063838Z   ldblib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.1315355Z   liolib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.1589597Z   lmathlib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.1852773Z   loslib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.2112481Z   lstrlib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.2433387Z   ltablib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.2657303Z   lutf8lib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.2915374Z   loadlib.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.7945882Z   linit.c
+windows	Build (Release, verbose)	2025-08-08T18:22:00.8125702Z   Generating Code...
+windows	Build (Release, verbose)	2025-08-08T18:22:01.3484099Z   Log.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:03.8118574Z   Time.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:05.1968995Z   Input.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:05.2330568Z   LuaVM.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:06.6568932Z   VulkanRenderer.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:07.8853314Z C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\shared\minwindef.h(130,9): warning C4005: 'APIENTRY': macro redefinition [D:\a\NovaEngine\NovaEngine\build\NovaEngine.vcxproj]
+windows	Build (Release, verbose)	2025-08-08T18:22:07.8880497Z   (compiling source file '../src/engine/renderer/vk/VulkanRenderer.cpp')
+windows	Build (Release, verbose)	2025-08-08T18:22:07.8881107Z       D:\a\NovaEngine\NovaEngine\build\_deps\glfw-src\include\GLFW\glfw3.h(123,11):
+windows	Build (Release, verbose)	2025-08-08T18:22:07.8881494Z       see previous definition of 'APIENTRY'
+windows	Build (Release, verbose)	2025-08-08T18:22:07.8881727Z   
+windows	Build (Release, verbose)	2025-08-08T18:22:08.6791489Z   VulkanHelpers.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:09.4616587Z   Editor.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:09.6472999Z   AICommandPalette.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:10.0555089Z   Memory.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:11.7909330Z   Proposals.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:13.6127717Z   imgui.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:14.1993595Z   imgui_draw.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:14.4806272Z   imgui_tables.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:14.7122336Z   imgui_widgets.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:15.0482487Z   imgui_impl_glfw.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:15.4281558Z   imgui_impl_vulkan.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:15.8936604Z   Generating Code...
+windows	Build (Release, verbose)	2025-08-08T18:22:24.3949060Z   NovaEngine.vcxproj -> D:\a\NovaEngine\NovaEngine\build\Release\NovaEngine.lib
+windows	Build (Release, verbose)	2025-08-08T18:22:24.4571179Z   Building Custom Rule D:/a/NovaEngine/NovaEngine/CMakeLists.txt
+windows	Build (Release, verbose)	2025-08-08T18:22:24.6141246Z   EditorMain.cpp
+windows	Build (Release, verbose)	2025-08-08T18:22:26.6748928Z   NovaEditor.vcxproj -> D:\a\NovaEngine\NovaEngine\build\bin\Release\NovaEditor.exe
+windows	Build (Release, verbose)	2025-08-08T18:22:26.8238635Z   Building Custom Rule D:/a/NovaEngine/NovaEngine/CMakeLists.txt
+windows	Upload build logs and outputs (always)	∩╗┐2025-08-08T18:22:27.0201713Z ##[group]Run actions/upload-artifact@v4
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0202163Z with:
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0202362Z   name: build-logs-and-out
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0202653Z   path: build/**/*.log
+windows	Upload build logs and outputs (always)	build/**/*.txt
+windows	Upload build logs and outputs (always)	build/bin/Release/**
+windows	Upload build logs and outputs (always)	
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0203057Z   if-no-files-found: warn
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0203287Z   compression-level: 6
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0203475Z   overwrite: false
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0203658Z   include-hidden-files: false
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0203862Z env:
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0204060Z   VULKAN_SDK: D:/a/NovaEngine/NovaEngine/VULKAN_SDK
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0204328Z   VULKAN_SDK_VERSION: 1.4.309.0
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0204545Z   VULKAN_SDK_PLATFORM: windows
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.0204772Z ##[endgroup]
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.9291313Z With the provided path, there will be 143 files uploaded
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.9298325Z Artifact name is valid!
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:27.9300921Z Root directory input is valid!
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:28.0605295Z Beginning upload of artifact content to blob storage
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:28.3423538Z Uploaded bytes 344536
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:28.3602745Z Finished uploading artifact content to blob storage!
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:28.3607652Z SHA256 digest of uploaded artifact zip is dbab7abc5d19956ee065e3d04c2530b2799c1f39024482cef2027601938845f4
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:28.3609876Z Finalizing artifact upload
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:28.4419746Z Artifact build-logs-and-out.zip successfully finalized. Artifact ID 3722308840
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:28.4421728Z Artifact build-logs-and-out has been successfully uploaded! Final size is 344536 bytes. Artifact ID is 3722308840
+windows	Upload build logs and outputs (always)	2025-08-08T18:22:28.4435021Z Artifact download URL: https://github.com/Iceessence/NovaEngine/actions/runs/16837607409/artifacts/3722308840
+windows	Post Install Vulkan SDK	∩╗┐2025-08-08T18:22:28.4735455Z Post job cleanup.
+windows	Post Install Vulkan SDK	2025-08-08T18:22:28.4836073Z Post job cleanup.
+windows	Post Install Vulkan SDK	2025-08-08T18:22:28.8191987Z [command]"C:\Program Files\Git\usr\bin\tar.exe" --posix -cf cache.tzst --exclude cache.tzst -P -C D:/a/NovaEngine/NovaEngine --files-from manifest.txt --force-local --use-compress-program "zstd -T0"
+windows	Post Install Vulkan SDK	2025-08-08T18:22:30.5048987Z Sent 53174429 of 187392157 (28.4%), 50.7 MBs/sec
+windows	Post Install Vulkan SDK	2025-08-08T18:22:30.7486990Z Sent 187392157 of 187392157 (100.0%), 143.5 MBs/sec
+windows	Post Install Vulkan SDK	2025-08-08T18:22:30.8343735Z Cache saved with key: Windows-vulkan-prebuilt-sdk-true-1.4.309.0
+windows	Post Run actions/checkout@v4	∩╗┐2025-08-08T18:22:30.8626464Z Post job cleanup.
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.1376598Z [command]"C:\Program Files\Git\bin\git.exe" version
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.1620043Z git version 2.50.1.windows.1
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.1695625Z Temporarily overriding HOME='D:\a\_temp\24a9b288-b30a-47ed-9997-1f6722899e89' before making global git config changes
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.1696755Z Adding repository directory to the temporary git global config as a safe directory
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.1708593Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\NovaEngine\NovaEngine
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.1996958Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.2241749Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.6769193Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.6972650Z http.https://github.com/.extraheader
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.7013059Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+windows	Post Run actions/checkout@v4	2025-08-08T18:22:31.7252739Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+windows	Complete job	∩╗┐2025-08-08T18:22:32.1962121Z Cleaning up orphan processes
+windows	Complete job	2025-08-08T18:22:32.2102438Z Terminate orphan process: pid (5028) (vctip)
+windows	Complete job	2025-08-08T18:22:32.2146867Z Terminate orphan process: pid (4788) (MSBuild)
+windows	Complete job	2025-08-08T18:22:32.2285246Z Terminate orphan process: pid (7264) (conhost)
+windows	Complete job	2025-08-08T18:22:32.2357614Z Terminate orphan process: pid (1192) (MSBuild)
+windows	Complete job	2025-08-08T18:22:32.2392923Z Terminate orphan process: pid (3208) (MSBuild)
+windows	Complete job	2025-08-08T18:22:32.2531528Z Terminate orphan process: pid (8096) (conhost)
