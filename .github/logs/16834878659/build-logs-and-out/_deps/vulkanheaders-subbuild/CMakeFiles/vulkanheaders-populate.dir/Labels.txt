@@ -1,0 +1,14 @@
+# Target labels
+ vulkanheaders-populate
+# Source files and their labels
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/vulkanheaders-populate
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/9713de9a284a5ce0b1cf9ab345291654/vulkanheaders-populate.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/8dfee09265b9d6115ffce13791e89327/vulkanheaders-populate-complete.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/9a8e7c40b3484ece91624e5705ba2409/vulkanheaders-populate-build.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/9a8e7c40b3484ece91624e5705ba2409/vulkanheaders-populate-configure.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/9a8e7c40b3484ece91624e5705ba2409/vulkanheaders-populate-download.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/9a8e7c40b3484ece91624e5705ba2409/vulkanheaders-populate-install.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/9a8e7c40b3484ece91624e5705ba2409/vulkanheaders-populate-mkdir.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/9a8e7c40b3484ece91624e5705ba2409/vulkanheaders-populate-patch.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/9a8e7c40b3484ece91624e5705ba2409/vulkanheaders-populate-test.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/vulkanheaders-subbuild/CMakeFiles/9a8e7c40b3484ece91624e5705ba2409/vulkanheaders-populate-update.rule

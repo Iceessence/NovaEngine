@@ -94,23 +94,9 @@ void VulkanRenderer::InitImGui(GLFWwindow* window)
     init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
     init_info.CheckVkResultFn = [](VkResult res){ VK_CHECK(res); };
 
-    {
-    ImGui_ImplVulkan_InitInfo init_info{};
-    init_info.Instance       = m_instance;
-    init_info.PhysicalDevice = m_phys;
-    init_info.Device         = m_dev;
-    init_info.QueueFamily    = m_queueFamily;
-    init_info.Queue          = m_queue;
-    init_info.DescriptorPool = m_imguiPool;
-    init_info.MinImageCount  = (uint32_t) (m_images.size() > 0 ? m_images.size() : 2);
-    init_info.ImageCount     = init_info.MinImageCount;
-    init_info.MSAASamples    = VK_SAMPLE_COUNT_1_BIT;
-    init_info.Subpass        = 0;
-    init_info.UseDynamicRendering = VK_FALSE;
-    // init_info.CheckVkResultFn = [](VkResult r){ if(r) fprintf(stderr, "VK err %d\n", r); };
+    ImGui_ImplVulkan_Init(&init_info);
 
-    VK_CHECK(ImGui_ImplVulkan_Init(&init_info, m_renderPass));
-}// Newer ImGui backends expose zero-arg CreateFontsTexture
+    // Newer ImGui backends expose zero-arg CreateFontsTexture
     // (older had VkCommandBuffer arg). We call the zero-arg one.
     (void)ImGui_ImplVulkan_CreateFontsTexture();
 
@@ -167,7 +153,4 @@ bool ShouldDisableImGui()
 #ifndef VK_CHECK
 #define VK_CHECK(x) do { VkResult _err = (x); if (_err != VK_SUCCESS) { /* TODO: replace with your logger */ __debugbreak(); } } while(0)
 #endif
-
-
-bool nova::VulkanRenderer::IsImGuiReady() const { return m_imguiReady; }
 

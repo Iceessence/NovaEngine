@@ -25,7 +25,7 @@ void Editor::DrawUI()
     if (!g_ui_frame_begun || ImGui::GetCurrentContext() == nullptr)
         return;
 
-    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport(), ImGuiDockNodeFlags_PassthruCentralNode | ImGuiDockNodeFlags_AutoHideTabBar, nullptr);
+    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport()->ID, 0, ImGuiDockNodeFlags_PassthruCentralNode);
 
     if (ImGui::Begin("Hierarchy"))
     {
@@ -45,10 +45,9 @@ void Editor::DrawUI()
 
 void nova::Editor::DrawUI() {
     if (ImGui::GetCurrentContext() == nullptr) return;
-    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport(), ImGuiDockNodeFlags_PassthruCentralNode | ImGuiDockNodeFlags_AutoHideTabBar, nullptr);
+    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport()->ID, 0, nullptr, ImGuiDockNodeFlags_PassthruCentralNode);
     if (ImGui::Begin("Nova")) {
         ImGui::TextUnformatted("Hello from NovaEditor");
     }
     ImGui::End();
 }
-

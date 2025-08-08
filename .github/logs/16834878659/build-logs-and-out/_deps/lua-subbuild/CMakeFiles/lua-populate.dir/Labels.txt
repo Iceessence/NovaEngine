@@ -1,0 +1,14 @@
+# Target labels
+ lua-populate
+# Source files and their labels
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/lua-populate
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/ac09ec48515f591d39547877575a1250/lua-populate.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/a75eb282a59c8f1fb2d8cf59f9be6227/lua-populate-complete.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/2de8b590412d7bb7e0fc42c4c5f1fead/lua-populate-build.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/2de8b590412d7bb7e0fc42c4c5f1fead/lua-populate-configure.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/2de8b590412d7bb7e0fc42c4c5f1fead/lua-populate-download.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/2de8b590412d7bb7e0fc42c4c5f1fead/lua-populate-install.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/2de8b590412d7bb7e0fc42c4c5f1fead/lua-populate-mkdir.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/2de8b590412d7bb7e0fc42c4c5f1fead/lua-populate-patch.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/2de8b590412d7bb7e0fc42c4c5f1fead/lua-populate-test.rule
+D:/a/NovaEngine/NovaEngine/build/_deps/lua-subbuild/CMakeFiles/2de8b590412d7bb7e0fc42c4c5f1fead/lua-populate-update.rule
