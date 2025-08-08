@@ -1,0 +1,133 @@
+﻿name: build-self-heal
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Install Vulkan SDK (winget)
+        run: |
+          \Continue = 'Stop'
+          winget install --id LunarG.VulkanSDK --silent --accept-package-agreements --accept-source-agreements --disable-interactivity
+          \ = 'C:\VulkanSDK'
+          if (Test-Path \) {
+            \ = Get-ChildItem \ -Directory | Sort-Object Name -Descending | Select-Object -First 1
+            if (\) {
+              "VULKAN_SDK=\" | Out-File -FilePath \ -Append -Encoding utf8
+              "\\Bin" | Out-File -FilePath \ -Append -Encoding utf8
+            }
+          }
+
+      - name: Configure (pass 1)
+        id: cfg1
+        run: |
+          Remove-Item -Recurse -Force build -ErrorAction SilentlyContinue
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 
+            -DCMAKE_CXX_STANDARD=20 
+            -DCMAKE_CXX_FLAGS="/D VK_NO_PROTOTYPES"
+
+      - name: Build (pass 1)
+        id: build1
+        continue-on-error: true
+        run: cmake --build build --config Debug -- /m /v:minimal
+
+      - name: Upload logs (after pass 1)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-pass1
+          path: |
+            build/**/*.log
+            build/*.log
+          if-no-files-found: ignore
+
+      - name: Apply fixes & reconfigure (pass 2)
+        if: steps.build1.conclusion == 'failure'
+        run: |
+          \Continue = 'Continue'
+          if (Test-Path "Scripts/apply_vulkanrenderer_header_fix.ps1") { pwsh Scripts/apply_vulkanrenderer_header_fix.ps1 -RepoRoot . }
+          if (Test-Path "Scripts/apply_sync_fix2.ps1") { pwsh Scripts/apply_sync_fix2.ps1 -RepoRoot . }
+          if (Test-Path "Scripts/apply_sync_fix3.ps1") { pwsh Scripts/apply_sync_fix3.ps1 -RepoRoot . }
+          if (Test-Path "Scripts/apply_vulkan_imgui_fix.ps1") { pwsh Scripts/apply_vulkan_imgui_fix.ps1 -RepoRoot . }
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 
+            -DCMAKE_CXX_STANDARD=20 
+            -DCMAKE_CXX_FLAGS="/D VK_NO_PROTOTYPES"
+
+      - name: Build (pass 2)
+        if: steps.build1.conclusion == 'failure'
+        id: build2
+        continue-on-error: true
+        run: cmake --build build --config Debug -- /m /v:minimal
+
+      - name: Upload logs (after pass 2)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-pass2
+          path: |
+            build/**/*.log
+            build/*.log
+          if-no-files-found: ignore
+
+      - name: Last-chance fixes & reconfigure (pass 3)
+        if: steps.build1.conclusion == 'failure' && steps.build2.conclusion == 'failure'
+        run: |
+          # add any other scripted fixes here later if we learn new patterns
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 
+            -DCMAKE_CXX_STANDARD=20 
+            -DCMAKE_CXX_FLAGS="/D VK_NO_PROTOTYPES"
+
+      - name: Build (pass 3)
+        if: steps.build1.conclusion == 'failure' && steps.build2.conclusion == 'failure'
+        id: build3
+        continue-on-error: true
+        run: cmake --build build --config Debug -- /m /v:minimal
+
+      - name: Upload logs (after pass 3)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-pass3
+          path: |
+            build/**/*.log
+            build/*.log
+          if-no-files-found: ignore
+
+      - name: Upload built editor
+        if: |
+          steps.build1.conclusion == 'success' ||
+          steps.build2.conclusion == 'success' ||
+          steps.build3.conclusion == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: NovaEditor-Debug
+          path: build/bin/Debug/NovaEditor.exe
+
+      - name: Commit any applied fixes
+        if: |
+          steps.build1.conclusion == 'failure' &&
+          (steps.build2.conclusion == 'success' || steps.build3.conclusion == 'success')
+        run: |
+          git config user.email "ci-bot@users.noreply.github.com"
+          git config user.name "ci-bot"
+          git add -A
+          git commit -m "CI auto-fix: apply scripts to make build green" || echo "No changes to commit"
+          git push || echo "Push skipped"
