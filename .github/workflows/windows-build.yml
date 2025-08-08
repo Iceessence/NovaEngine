@@ -1,38 +1,58 @@
-﻿name: build
+﻿name: windows-build
+
 on:
   push:
-  pull_request:
   workflow_dispatch:
 
 jobs:
   windows:
-    runs-on: windows-2022
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Install Vulkan SDK
-        uses: humbletim/install-vulkan-sdk@v1.2
+        shell: pwsh
+        run: |
+          choco install vulkan-sdk -y --no-progress || choco upgrade vulkan-sdk -y --no-progress
+
+      - name: Configure (CMake)
+        shell: pwsh
+        run: |
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build (Release)
+        shell: pwsh
+        run: |
+          cmake --build build --config Release -- /m
+
+      - name: Package ZIP
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem -Recurse -File -Path build -Filter NovaEditor.exe | Select-Object -First 1
+          if (-not $exe) {
+            Get-ChildItem -Recurse build | Out-String | Write-Host
+            throw "NovaEditor.exe not found under build/"
+          }
+          $dir = $exe.Directory.FullName
+          if (Test-Path .\assets) { Copy-Item -Recurse -Force .\assets $dir }
+          $zip = "NovaEditor-${{ github.run_number }}-${{ github.sha.Substring(0,7) }}-Release.zip"
+          Compress-Archive -Path (Join-Path $dir '*') -DestinationPath $zip -Force
+          Write-Host "Created $zip"
+
+      - name: Upload ZIP
+        uses: actions/upload-artifact@v4
         with:
-          version: 1.4.309.0
-          cache: true
+          name: NovaEditor-Release
+          path: NovaEditor-*-Release.zip
+          if-no-files-found: error
+          retention-days: 7
 
-      - name: Configure (Release)
-        shell: pwsh
-        run: |
-          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release -DNOVA_FETCH_DEPS=ON
-
-      - name: Build (Release, verbose)
-        shell: pwsh
-        run: |
-          cmake --build build --config Release -- /m /v:minimal
-
-      # Always upload logs + whatever built so we can inspect
-      - name: Upload build logs and outputs (always)
+      - name: Upload logs (always)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-logs-and-out
           path: |
-            build/**/*.log
-            build/**/*.txt
-            build/bin/Release/**
+            build/**/*
+            C:\ProgramData\chocolatey\logs\chocolatey.log
+          retention-days: 5
