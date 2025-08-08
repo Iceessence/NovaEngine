@@ -1,43 +1,29 @@
-name: Windows MSVC Build
-
+﻿name: build
 on:
   push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: windows-latest
+  windows:
+    runs-on: windows-2022
     steps:
       - uses: actions/checkout@v4
 
       - name: Install Vulkan SDK
-        shell: powershell
-        run: |
-          choco install vulkan-sdk -y --no-progress
-          $v = Get-ChildItem "C:\VulkanSDK" | Sort-Object Name -Descending | Select-Object -First 1
-          echo "VULKAN_SDK=$($v.FullName)" >> $env:GITHUB_ENV
-          echo "$($v.FullName)\Bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-
-      - name: Configure (Debug)
-        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug
-
-      - name: Build (Debug)
-        run: cmake --build build --config Debug -- /m
-
-      - name: Package artifacts
-        shell: powershell
-        run: |
-          $out = "artifacts"
-          New-Item -ItemType Directory -Force -Path $out | Out-Null
-          Copy-Item build\bin\Debug\*.exe -Destination $out -ErrorAction SilentlyContinue
-          Copy-Item build\bin\Debug\*.pdb -Destination $out -ErrorAction SilentlyContinue
-          Copy-Item build\Debug\*.lib -Destination $out -ErrorAction SilentlyContinue
-          if (Test-Path $out) { Compress-Archive -Path "$out\*" -DestinationPath novaengine-win-debug.zip -Force }
-
-      - uses: actions/upload-artifact@v4
+        uses: humbletim/install-vulkan-sdk@v1.2
         with:
-          name: novaengine-win-debug
-          path: novaengine-win-debug.zip
+          version: 1.4.309.0
+          cache: true
+
+      - name: Configure (Release)
+        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build (Release)
+        run: cmake --build build --config Release -- /m
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: NovaEditor-Windows-Release
+          path: build/bin/Release/
