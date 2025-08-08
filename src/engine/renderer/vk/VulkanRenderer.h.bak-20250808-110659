@@ -14,11 +14,13 @@ namespace nova {
 
 class VulkanRenderer {
 public:
+    
     void InitImGui(GLFWwindow* window);
 VulkanRenderer() = default;
     ~VulkanRenderer() = default;
 
     // ImGui lifecycle used by VulkanRenderer.cpp
+void InitImGui(GLFWwindow* window);
     void BeginFrame();
     void EndFrame(VkCommandBuffer cmd);
 
@@ -41,6 +43,5 @@ private:
 };
 
 } // namespace nova
-
 
 

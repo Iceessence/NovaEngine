@@ -2,9 +2,7 @@
 #define VK_NO_PROTOTYPES
 #endif
 #include <volk.h>
-#include <cstdio>
 #include <algorithm>
-#include <cstdio>
 namespace nova { bool ShouldDisableImGui(); }
 // Patched VulkanRenderer.cpp (ImGui enablement + safe NewFrame/Render path)
 // Drop-in replacement for: src/engine/renderer/vk/VulkanRenderer.cpp
@@ -15,26 +13,17 @@ namespace nova { bool ShouldDisableImGui(); }
 // - Externs g_ui_frame_begun so Editor can safely guard UI calls
 
 #include "VulkanRenderer.h"
-#include <cstdio>
 #include "VulkanHelpers.h"
-#include <cstdio>
 #include "core/Log.h"
-#include <cstdio>
 
 #include <cstdlib>
-#include <cstdio>
 #include <cstring>
-#include <cstdio>
 
 #include <imgui.h>
-#include <cstdio>
 #include <backends/imgui_impl_glfw.h>
-#include <cstdio>
 #include <backends/imgui_impl_vulkan.h>
-#include <cstdio>
 
 #include <algorithm>
-#include <cstdio>
 namespace nova {
 
 // This symbol is defined (or shimmed) in Editor side to gate UI drawing.
@@ -181,6 +170,8 @@ bool ShouldDisableImGui()
 
 
 /* removed duplicate IsImGuiReady body (handled inline in header) */
+
+
 bool nova::VulkanRenderer::IsImGuiReady() const {
     return m_imguiReady;
 }
