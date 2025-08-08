@@ -4,13 +4,18 @@ on:
   push:
   workflow_dispatch:
 
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   windows:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
 
-      # No Vulkan SDK step — the project builds without it
+      # If your repo now builds without Vulkan SDK, keep this removed.
+      # If you still need it, add the choco install step back.
 
       - name: Configure (CMake)
         shell: pwsh
@@ -30,9 +35,10 @@ jobs:
             Get-ChildItem -Recurse build | Out-String | Write-Host
             throw "NovaEditor.exe not found under build/"
           }
-          $dir = $exe.Directory.FullName
+          $dir  = $exe.Directory.FullName
           if (Test-Path .\assets) { Copy-Item -Recurse -Force .\assets $dir }
-          $zip = "NovaEditor-${{ github.run_number }}-${{ github.sha.Substring(0,7) }}-Release.zip"
+          $sha7 = $env:GITHUB_SHA.Substring(0,7)
+          $zip  = "NovaEditor-$($env:GITHUB_RUN_NUMBER)-$sha7-Release.zip"
           Compress-Archive -Path (Join-Path $dir '*') -DestinationPath $zip -Force
           Write-Host "Created $zip"
 
@@ -42,20 +48,12 @@ jobs:
           name: NovaEditor-Release
           path: NovaEditor-*-Release.zip
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 14
 
-      # Copy any extra logs you want INSIDE the workspace, then upload
-      - name: Collect logs (always)
-        if: always()
-        shell: pwsh
-        run: |
-          New-Item -ItemType Directory -Force -Path build-logs | Out-Null
-          if (Test-Path build) { Copy-Item -Recurse -Force build\* build-logs\ | Out-Null }
-
-      - name: Upload logs (always)
+      - name: Upload build folder (always)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-logs-and-out
-          path: build-logs/**
-          retention-days: 5
+          path: build/**/*
+          retention-days: 7
