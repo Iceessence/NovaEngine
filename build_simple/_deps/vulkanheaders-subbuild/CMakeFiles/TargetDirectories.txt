@@ -1,0 +1,3 @@
+/workspace/build_simple/_deps/vulkanheaders-subbuild/CMakeFiles/vulkanheaders-populate.dir
+/workspace/build_simple/_deps/vulkanheaders-subbuild/CMakeFiles/edit_cache.dir
+/workspace/build_simple/_deps/vulkanheaders-subbuild/CMakeFiles/rebuild_cache.dir

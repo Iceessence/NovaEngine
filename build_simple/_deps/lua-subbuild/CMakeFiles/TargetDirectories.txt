@@ -1,0 +1,3 @@
+/workspace/build_simple/_deps/lua-subbuild/CMakeFiles/lua-populate.dir
+/workspace/build_simple/_deps/lua-subbuild/CMakeFiles/edit_cache.dir
+/workspace/build_simple/_deps/lua-subbuild/CMakeFiles/rebuild_cache.dir

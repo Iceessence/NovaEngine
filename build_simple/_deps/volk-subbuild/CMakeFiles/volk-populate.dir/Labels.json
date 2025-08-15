@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/CMakeFiles/volk-populate"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/CMakeFiles/volk-populate.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/CMakeFiles/volk-populate-complete.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/volk-populate-prefix/src/volk-populate-stamp/volk-populate-build.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/volk-populate-prefix/src/volk-populate-stamp/volk-populate-configure.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/volk-populate-prefix/src/volk-populate-stamp/volk-populate-download.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/volk-populate-prefix/src/volk-populate-stamp/volk-populate-install.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/volk-populate-prefix/src/volk-populate-stamp/volk-populate-mkdir.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/volk-populate-prefix/src/volk-populate-stamp/volk-populate-patch.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/volk-populate-prefix/src/volk-populate-stamp/volk-populate-test.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/volk-subbuild/volk-populate-prefix/src/volk-populate-stamp/volk-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"volk-populate"
+		],
+		"name" : "volk-populate"
+	}
+}

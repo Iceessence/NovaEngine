@@ -1,0 +1,1 @@
+/usr/bin/c++ -Xlinker --dependency-file=CMakeFiles/NovaEditor.dir/link.d CMakeFiles/NovaEditor.dir/src/app/EditorMain.cpp.o -o bin/NovaEditor  libNovaEngine.a _deps/glfw-build/src/libglfw3.a /usr/lib/x86_64-linux-gnu/librt.a -lm -ldl _deps/glm-build/glm/libglm.a

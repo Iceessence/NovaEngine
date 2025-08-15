@@ -26,8 +26,10 @@ if (NOVA_FETCH_DEPS)
   FetchContent_Declare(lua GIT_REPOSITORY https://github.com/lua/lua.git GIT_TAG v5.4.7)
   # Vulkan-Headers
   FetchContent_Declare(vulkanheaders GIT_REPOSITORY https://github.com/KhronosGroup/Vulkan-Headers.git GIT_TAG v1.3.283)
+  # glad
+  FetchContent_Declare(glad GIT_REPOSITORY https://github.com/Dav1dde/glad.git GIT_TAG v0.1.36)
 
-  FetchContent_MakeAvailable(glfw imgui glm lua)
+  FetchContent_MakeAvailable(glfw imgui glm lua glad)
 endif()
 
 
@@ -67,12 +69,14 @@ endif()
 
 add_library(NovaEngine STATIC
   ${volk_SOURCE_DIR}/volk.c
+  src/engine/renderer/glad.c
   src/engine/core/Log.cpp
   src/engine/core/Time.cpp
   src/engine/ecs/ECS.h
   src/engine/ecs/Components.h
   src/engine/input/Input.cpp
   src/engine/scripting/LuaVM.cpp
+  src/engine/renderer/OpenGLRenderer.cpp
   src/engine/renderer/vk/VulkanRenderer.cpp
   src/engine/renderer/vk/VulkanHelpers.cpp
   src/engine/editor/Editor.cpp
