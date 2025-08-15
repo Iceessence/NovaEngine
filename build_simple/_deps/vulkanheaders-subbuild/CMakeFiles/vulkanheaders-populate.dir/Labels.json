@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/CMakeFiles/vulkanheaders-populate"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/CMakeFiles/vulkanheaders-populate.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/CMakeFiles/vulkanheaders-populate-complete.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/vulkanheaders-populate-prefix/src/vulkanheaders-populate-stamp/vulkanheaders-populate-build.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/vulkanheaders-populate-prefix/src/vulkanheaders-populate-stamp/vulkanheaders-populate-configure.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/vulkanheaders-populate-prefix/src/vulkanheaders-populate-stamp/vulkanheaders-populate-download.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/vulkanheaders-populate-prefix/src/vulkanheaders-populate-stamp/vulkanheaders-populate-install.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/vulkanheaders-populate-prefix/src/vulkanheaders-populate-stamp/vulkanheaders-populate-mkdir.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/vulkanheaders-populate-prefix/src/vulkanheaders-populate-stamp/vulkanheaders-populate-patch.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/vulkanheaders-populate-prefix/src/vulkanheaders-populate-stamp/vulkanheaders-populate-test.rule"
+		},
+		{
+			"file" : "/workspace/build_simple/_deps/vulkanheaders-subbuild/vulkanheaders-populate-prefix/src/vulkanheaders-populate-stamp/vulkanheaders-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"vulkanheaders-populate"
+		],
+		"name" : "vulkanheaders-populate"
+	}
+}

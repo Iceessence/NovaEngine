@@ -1,0 +1,14 @@
+# Target labels
+ lua-populate
+# Source files and their labels
+/workspace/build_simple/_deps/lua-subbuild/CMakeFiles/lua-populate
+/workspace/build_simple/_deps/lua-subbuild/CMakeFiles/lua-populate.rule
+/workspace/build_simple/_deps/lua-subbuild/CMakeFiles/lua-populate-complete.rule
+/workspace/build_simple/_deps/lua-subbuild/lua-populate-prefix/src/lua-populate-stamp/lua-populate-build.rule
+/workspace/build_simple/_deps/lua-subbuild/lua-populate-prefix/src/lua-populate-stamp/lua-populate-configure.rule
+/workspace/build_simple/_deps/lua-subbuild/lua-populate-prefix/src/lua-populate-stamp/lua-populate-download.rule
+/workspace/build_simple/_deps/lua-subbuild/lua-populate-prefix/src/lua-populate-stamp/lua-populate-install.rule
+/workspace/build_simple/_deps/lua-subbuild/lua-populate-prefix/src/lua-populate-stamp/lua-populate-mkdir.rule
+/workspace/build_simple/_deps/lua-subbuild/lua-populate-prefix/src/lua-populate-stamp/lua-populate-patch.rule
+/workspace/build_simple/_deps/lua-subbuild/lua-populate-prefix/src/lua-populate-stamp/lua-populate-test.rule
+/workspace/build_simple/_deps/lua-subbuild/lua-populate-prefix/src/lua-populate-stamp/lua-populate-update.rule
