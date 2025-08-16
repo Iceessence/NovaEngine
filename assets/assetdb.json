@@ -1,0 +1,60 @@
+{
+    "version": "1.0",
+    "lastUpdated": "2025-08-15T14:00:00Z",
+    "assets": [
+        {
+            "guid": "fe23ca9406d0ca0b",
+            "path": "builtin:cube",
+            "type": "Mesh",
+            "lastModified": "2025-08-15T14:00:00Z",
+            "dependencies": []
+        },
+        {
+            "guid": "a1b2c3d4e5f67890",
+            "path": "Assets/Materials/default_pbr.mat",
+            "type": "Material",
+            "lastModified": "2025-08-15T14:00:00Z",
+            "dependencies": [
+                {
+                    "asset": "texture_albedo_123",
+                    "path": "Assets/Textures/default_albedo.png",
+                    "type": "Texture"
+                },
+                {
+                    "asset": "texture_metallic_456",
+                    "path": "Assets/Textures/default_metallic_roughness.png",
+                    "type": "Texture"
+                },
+                {
+                    "asset": "texture_normal_789",
+                    "path": "Assets/Textures/default_normal.png",
+                    "type": "Texture"
+                }
+            ]
+        },
+        {
+            "guid": "texture_albedo_123",
+            "path": "Assets/Textures/default_albedo.png",
+            "type": "Texture",
+            "lastModified": "2025-08-15T14:00:00Z",
+            "dependencies": []
+        },
+        {
+            "guid": "texture_metallic_456",
+            "path": "Assets/Textures/default_metallic_roughness.png",
+            "type": "Texture",
+            "lastModified": "2025-08-15T14:00:00Z",
+            "dependencies": []
+        },
+        {
+            "guid": "texture_normal_789",
+            "path": "Assets/Textures/default_normal.png",
+            "type": "Texture",
+            "lastModified": "2025-08-15T14:00:00Z",
+            "dependencies": []
+        }
+    ]
+}
+
+
+

@@ -26,8 +26,13 @@ if (NOVA_FETCH_DEPS)
   FetchContent_Declare(lua GIT_REPOSITORY https://github.com/lua/lua.git GIT_TAG v5.4.7)
   # Vulkan-Headers
   FetchContent_Declare(vulkanheaders GIT_REPOSITORY https://github.com/KhronosGroup/Vulkan-Headers.git GIT_TAG v1.3.283)
+  # cgltf (temporarily disabled - using simple parser)
+  # FetchContent_Declare(cgltf GIT_REPOSITORY https://github.com/jkuhlmann/cgltf.git GIT_TAG 1.16)
+  
+  # stb_image for texture loading
+  FetchContent_Declare(stb GIT_REPOSITORY https://github.com/nothings/stb.git GIT_TAG master)
 
-  FetchContent_MakeAvailable(glfw imgui glm lua)
+  FetchContent_MakeAvailable(glfw imgui glm lua stb)
 endif()
 
 
@@ -62,23 +67,46 @@ else()
     DEPENDS ${SHADER_SRC_DIR}/pbr.frag.glsl
     COMMENT "Compiling pbr.frag.glsl -> pbr.frag.spv"
   )
-  add_custom_target(Shaders ALL DEPENDS ${SHADER_OUT_DIR}/pbr.vert.spv ${SHADER_OUT_DIR}/pbr.frag.spv)
+  add_custom_command(
+    OUTPUT ${SHADER_OUT_DIR}/shadow.vert.spv
+    COMMAND ${GLSLC} -fshader-stage=vert -O -o ${SHADER_OUT_DIR}/shadow.vert.spv ${SHADER_SRC_DIR}/shadow.vert.glsl
+    DEPENDS ${SHADER_SRC_DIR}/shadow.vert.glsl
+    COMMENT "Compiling shadow.vert.glsl -> shadow.vert.spv"
+  )
+  add_custom_command(
+    OUTPUT ${SHADER_OUT_DIR}/shadow.frag.spv
+    COMMAND ${GLSLC} -fshader-stage=frag -O -o ${SHADER_OUT_DIR}/shadow.frag.spv ${SHADER_SRC_DIR}/shadow.frag.glsl
+    DEPENDS ${SHADER_SRC_DIR}/shadow.frag.glsl
+    COMMENT "Compiling shadow.frag.glsl -> shadow.frag.spv"
+  )
+  add_custom_target(Shaders ALL DEPENDS ${SHADER_OUT_DIR}/pbr.vert.spv ${SHADER_OUT_DIR}/pbr.frag.spv ${SHADER_OUT_DIR}/shadow.vert.spv ${SHADER_OUT_DIR}/shadow.frag.spv)
 endif()
 
 add_library(NovaEngine STATIC
   ${volk_SOURCE_DIR}/volk.c
+  # ${cgltf_SOURCE_DIR}/cgltf.c
   src/engine/core/Log.cpp
   src/engine/core/Time.cpp
+  src/engine/core/Camera.cpp
+  src/engine/core/LightingManager.cpp
   src/engine/ecs/ECS.h
   src/engine/ecs/Components.h
   src/engine/input/Input.cpp
   src/engine/scripting/LuaVM.cpp
-  src/engine/renderer/vk/VulkanRenderer.cpp
-  src/engine/renderer/vk/VulkanHelpers.cpp
+      src/engine/renderer/vk/VulkanRenderer.cpp
+    src/engine/renderer/vk/VulkanHelpers.cpp
+    src/engine/renderer/shadows/ShadowSystem.cpp
   src/engine/editor/Editor.cpp
   src/engine/editor/AICommandPalette.cpp
   src/engine/ai/Memory.cpp
   src/engine/ai/Proposals.cpp
+  src/engine/assets/AssetManager.cpp
+  src/engine/assets/STBImageImpl.cpp
+  src/engine/assets/Texture.cpp
+  src/engine/assets/Material.cpp
+  src/engine/assets/Mesh.cpp
+  src/engine/assets/importers/GLTFImporter.cpp
+  src/engine/assets/HotReload.cpp
 )
 target_include_directories(NovaEngine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/engine)
 
@@ -89,6 +117,8 @@ target_include_directories(NovaEngine PUBLIC src
   PRIVATE ${imgui_SOURCE_DIR}/backends
   PRIVATE ${glfw_SOURCE_DIR}/include
   PRIVATE ${lua_SOURCE_DIR}
+  # PRIVATE ${cgltf_SOURCE_DIR}
+  PRIVATE ${stb_SOURCE_DIR}
 )
 target_compile_definitions(NovaEngine PRIVATE IMGUI_DEFINE_MATH_OPERATORS)
 

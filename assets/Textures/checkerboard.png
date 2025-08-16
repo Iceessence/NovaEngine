@@ -1,0 +1,6 @@
+# This is a placeholder for a checkerboard texture
+# In a real implementation, we would generate a PNG file here
+# For now, we'll create it programmatically in the Texture class
+
+
+
